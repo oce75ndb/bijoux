@@ -24,28 +24,33 @@ class PanierController extends Controller
     {
         // On récupère le panier depuis la session (ou un tableau vide s'il n'existe pas encore)
         $panier = session()->get('panier', []);
-
+    
         // ID du produit
         $id = $request->id;
-
+    
         // Vérifier si le produit existe déjà dans le panier
         if (isset($panier[$id])) {
             // Si oui, on incrémente la quantité
             $panier[$id]['quantite'] += 1;
         } else {
-            // Sinon, on l'ajoute au panier
+            // Récupérer le produit depuis la base de données
+            $produit = \App\Models\Produit::findOrFail($id);
+    
+            // Ajouter le produit au panier
             $panier[$id] = [
-                'nom' => $request->nom, // Nom du produit
-                'prix' => $request->prix, // Prix du produit
+                'nom' => $produit->nom, // Nom du produit
+                'prix' => $produit->prix, // Prix du produit
                 'quantite' => 1, // Quantité initiale
+                'image' => $produit->image, // Ajout de l'image du produit
             ];
-        }
 
+        }
+    
         // On sauvegarde le panier dans la session
         session()->put('panier', $panier);
-
+        //return dd($panier);
         return redirect()->route('panier.index')->with('success', 'Produit ajouté au panier !');
-    }
+    }    
 
     public function supprimer($id)
     {

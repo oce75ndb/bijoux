@@ -1,93 +1,116 @@
 <x-app-layout>
+    
     <div class="container mx-auto px-4 py-8">
         
         <!-- Titre principal -->
-        <h1 class="text-2xl font-bold mb-6">Votre panier</h1>
+        <h1 class="text-3xl font-bold text-black dark:text-beige mb-6 text-center">Votre Panier</h1>
 
         @if(count($panier) > 0)
             <!-- Tableau du panier -->
-            <table class="w-full border-collapse border border-brown">
-                <thead>
-                    <tr>
-                        <th class="bg-white dark:bg-beige border border-brown px-4 py-2">Produit</th>
-                        <th class="bg-white dark:bg-beige border border-brown px-4 py-2">Quantité</th>
-                        <th class="bg-white dark:bg-beige border border-brown px-4 py-2">Prix</th>
-                        <th class="bg-white dark:bg-beige border border-brown px-4 py-2">Total</th>
-                        <th class="bg-white dark:bg-beige border border-brown px-4 py-2">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($panier as $id => $article)
-                        <tr>
-                            <td class="border border-brown px-4 py-2">
-                                {{ $article['nom'] }}
-                            </td>
-                            <td class="border border-brown px-4 py-2">
-                                <div class="flex items-center">
-                                    
-                                    <!-- Bouton "-" -->
-                                    <form method="POST" action="{{ route('panier.decrementer', $id) }}">
-                                        @csrf
-                                        @method('PATCH')
-                                        <button type="submit" 
-                                                class="bg-white dark:bg-beige text-black px-2 py-1 rounded"
-                                                @if($article['quantite'] <= 1) disabled @endif>
-                                            -
-                                        </button>
-                                    </form>
-
-                                    <!-- Quantité actuelle -->
-                                    <span class="mx-2">{{ $article['quantite'] }}</span>
-
-                                    <!-- Bouton "+" -->
-                                    <form method="POST" action="{{ route('panier.incrementer', $id) }}">
-                                        @csrf
-                                        @method('PATCH')
-                                        <button type="submit" 
-                                                class="bg-white dark:bg-beige text-black px-2 py-1 rounded">
-                                            +
-                                        </button>
-                                    </form>
-                                </div>
-                            </td>
-                            <td class="border border-brown px-4 py-2">
-                                {{ number_format($article['prix'], 2) }} €
-                            </td>
-                            <td class="border border-brown px-4 py-2">
-                                {{ number_format($article['prix'] * $article['quantite'], 2) }} €
-                            </td>
-                            <td class="border border-brown px-4 py-2">
-                                <!-- Bouton pour supprimer l'article -->
-                                <form method="POST" action="{{ route('panier.supprimer', $id) }}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" 
-                                            class="font-bold text-gold dark:text-brown">
-                                        Supprimer
-                                    </button>
-                                </form>
-                            </td>
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse border border-brown rounded-lg shadow-md">
+                    <thead>
+                        <tr class="bg-gold dark:bg-brown text-white">
+                            <th class="border border-brown px-4 py-3 text-left">Produit</th>
+                            <th class="border border-brown px-4 py-3">Quantité</th>
+                            <th class="border border-brown px-4 py-3">Prix</th>
+                            <th class="border border-brown px-4 py-3">Total</th>
+                            <th class="border border-brown px-4 py-3">Actions</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody class="bg-white dark:bg-beige">
+                        @foreach($panier as $id => $article)
+                            <tr class="">
+                                <!-- Image + Nom du produit -->
+                                <td class="border border-brown px-4 py-3 flex items-center space-x-4">
+                                @if ($article['image'] !== null)
+                                <img src="{{ asset($article['image']) }}"
+                                alt="{{ $article['nom'] }}"
+                                @endif
+                                class="w-16 h-16 rounded shadow-md">
+                                    <span class="font-semibold text-black dark:text-brown">{{ $article['nom'] }}</span>
+                                </td>
+                                
+                                <!-- Quantité avec boutons "+" et "-" -->
+                                <td class="border border-brown px-4 py-3 text-center">
+                                    <div class="flex items-center justify-center space-x-3">
+                                        
+                                        <!-- Bouton "-" -->
+                                        <form method="POST" action="{{ route('panier.decrementer', $id) }}">
+                                            @csrf
+                                            @method('PATCH')
+                                            <button type="submit" 
+                                                    class="bg-gray-200 dark:bg-brown text-black px-3 py-1 rounded-full hover:bg-gray-300"
+                                                    @if($article['quantite'] <= 1) disabled @endif>
+                                                -
+                                            </button>
+                                        </form>
+
+                                        <!-- Quantité actuelle -->
+                                        <span class="text-lg font-semibold">{{ $article['quantite'] }}</span>
+
+                                        <!-- Bouton "+" -->
+                                        <form method="POST" action="{{ route('panier.incrementer', $id) }}">
+                                            @csrf
+                                            @method('PATCH')
+                                            <button type="submit" 
+                                                    class="bg-gray-200 dark:bg-brown text-black px-3 py-1 rounded-full hover:bg-gray-300">
+                                                +
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+
+                                <!-- Prix unitaire -->
+                                <td class="border border-brown px-4 py-3 text-center">
+                                    <span class="font-semibold text-gold">{{ number_format($article['prix'], 2) }} €</span>
+                                </td>
+
+                                <!-- Total du produit -->
+                                <td class="border border-brown px-4 py-3 text-center">
+                                    <span class="font-semibold text-gold">{{ number_format($article['prix'] * $article['quantite'], 2) }} €</span>
+                                </td>
+
+                                <!-- Suppression du produit -->
+                                <td class="border border-brown px-4 py-3 text-center">
+                                    <form method="POST" action="{{ route('panier.supprimer', $id) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" 
+                                                class="font-bold text-red-500 hover:text-red-700 transition">
+                                            ❌ Supprimer
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
 
             <!-- Montant total -->
             <div class="mt-6 text-right">
-                <h2 class="text-2xl font-bold">
-                    Montant total : {{ number_format($total, 2) }} €
+                <h2 class="text-2xl font-bold text-black dark:text-beige">
+                    Montant total : <span class="text-gold">{{ number_format($total, 2) }} €</span>
                 </h2>
             </div>
 
             <!-- Bouton passer à la caisse -->
-            <div class="mt-4">
+            <div class="mt-6 text-center">
                 <a href="{{ route('checkout') }}" 
-                   class="bg-gold text-white dark:bg-brown dark:text-beige px-4 py-2 rounded">
+                   class="bg-gold text-white dark:bg-brown dark:text-beige px-6 py-3 rounded-lg text-lg font-semibold shadow-md hover:bg-black dark:hover:bg-gold transition">
                     Passer à la caisse
                 </a>            
             </div>
+
         @else
-            <p>Votre panier est vide.</p>
+            <!-- Message Panier Vide -->
+            <div class="text-center mt-10">
+                <p class="text-xl font-semibold text-black dark:text-beige">Votre panier est vide.</p>
+                <a href="{{ route('produits.index') }}" class="mt-4 inline-block bg-gold text-white dark:bg-brown dark:text-beige px-6 py-3 rounded-lg shadow-md hover:bg-black dark:hover:bg-gold transition">
+                    Découvrir nos produits
+                </a>
+            </div>
         @endif
         
     </div>
