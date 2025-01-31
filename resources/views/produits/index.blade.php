@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout> 
     <section class="py-8">
         <div class="container mx-auto px-4">
             
@@ -15,22 +15,22 @@
                     <form action="{{ route('produits.index') }}" method="GET" class="space-y-4">
                         
                         <!-- Recherche -->
-                        <div class="flex items-center space-x-2">
+                        <div>
                             <label for="search" class="sr-only">Rechercher :</label>
                             <input 
                                 type="text" id="search" name="search" 
                                 placeholder="Nom du produit..." 
                                 value="{{ request('search') }}" 
-                                class="flex-1 p-2 border border-gold rounded focus:outline-none 
+                                class="w-full p-2 border border-gold rounded focus:outline-none 
                                        focus:ring-2 focus:ring-gold focus:border-transparent"
                             >
-                            <button 
-                                type="submit" 
-                                class="bg-black dark:bg-brown text-beige px-4 py-2 rounded hover:bg-gold"
-                            >
-                                Chercher
-                            </button>
-                        </div>  
+                        </div>
+                        <button 
+                            type="submit" 
+                            class="bg-black dark:bg-brown text-beige px-4 py-2 w-full rounded hover:bg-gold"
+                        >
+                            Chercher
+                        </button>
 
                         <!-- Filtre par catégorie -->
                         <div>
@@ -86,16 +86,6 @@
                     @endforelse
                 </div>
             </div>
-
-            <!-- Pagination -->
-            @if ($produits->hasPages())
-                <div class="mt-8 flex justify-center">
-                    <div class="bg-white p-4 rounded shadow border border-gold">
-                        {{ $produits->links('pagination::tailwind') }}
-                    </div>
-                </div>
-            @endif
-
         </div>
     </section>
 </x-app-layout>
