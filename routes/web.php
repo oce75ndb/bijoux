@@ -45,15 +45,25 @@ Route::patch('/panier/decrementer/{id}', [PanierController::class, 'decrementer'
 // Route pour supprimer un par un les produits du panier
 Route::delete('/panier/supprimer/{id}', [PanierController::class, 'supprimer'])->name('panier.supprimer');
 
+// Route pour le checkout
+Route::get('/checkout', function () {
+    return view('checkout.index'); // Ajout du dossier "checkout"
+})->name('checkout');
 
+Route::post('/checkout/process', [CheckoutController::class, 'processPayment'])->name('checkout.process');
+
+// Route pour la page de dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+// Route pour le profil
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Route pour l'authentification
 require __DIR__.'/auth.php';
