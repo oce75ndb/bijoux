@@ -15,7 +15,7 @@
                 <div class="w-2/3 text-right">
                     
                     <!-- Nom du produit -->
-                    <h2 class="text-4xl font-bold mb-4 text-black dark:text-brown">
+                    <h2 class="text-4xl font-bold mb-4 text-brown dark:text-brown">
                         {{ $produit->nom }}
                     </h2>
                     
@@ -36,15 +36,15 @@
                     </p>
 
                     <!-- Description -->
-                    <p class="text-black dark:text-brown text-lg mb-6 leading-relaxed">
+                    <p class="text-brown dark:text-brown text-lg mb-6 leading-relaxed">
                         {{ $produit->description }}
                     </p>
 
                     <!-- Détails du produit -->
-                    <h3 class="text-2xl font-bold mt-8 mb-4 text-black dark:text-brown">
+                    <h3 class="text-2xl font-bold mt-8 mb-4 text-brown dark:text-brown">
                         Détails du produit
                     </h3>
-                    <div class="text-black dark:text-brown text-right space-y-2">
+                    <div class="text-brown dark:text-brown text-right space-y-2">
                         <p>Matériaux : {{ $produit->materiau }}</p>
                         <p>Style : {{ $produit->style }}</p>
                         <p>Dimensions : {{ $produit->dimensions }}</p>
