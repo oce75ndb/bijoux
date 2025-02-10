@@ -43,6 +43,7 @@
                         @foreach ($categories as $categorie)
                             <li>
                                 <a href="{{ route('categorie.produits', ['id' => $categorie->id]) }}" 
+                                wire:navigate
                                 class="hover:text-beige text-brown dark:text-beige">
                                 {{ $categorie->categorie }}
                                 </a>
@@ -54,9 +55,9 @@
                 <!-- Panier -->
                 <a href="{{ route('panier.index') }}" class="font-bold hover:text-beige text-brown dark:text-beige">
                     Panier 
-                    @if(session('panier') && count(session('panier')) > 0)
-                        ({{ count(session('panier')) }})
-                    @endif
+                @if(session()->has('panier') && count(session()->get('panier')) > 0)
+                    ({{ count(session()->get('panier')) }})
+                @endif
                 </a>
 
                 <!-- Menu Utilisateur -->

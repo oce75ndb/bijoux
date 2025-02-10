@@ -9,7 +9,8 @@
             Des créations élégantes pour sublimer chaque moment.
         </p>
         <a href="/products" 
-           class="mt-6 inline-block bg-brown dark:bg-beige text-beige dark:text-brown py-2 px-4 rounded 
+            wire:navigate
+            class="mt-6 inline-block bg-brown dark:bg-beige text-beige dark:text-brown py-2 px-4 rounded 
                   hover:bg-gold transition-transform transform hover:scale-105">
             Voir toute la collection
         </a>

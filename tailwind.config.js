@@ -21,7 +21,7 @@ export default {
                     DEFAULT: '#F5EFE6',
                 },
                 gold: {
-                    DEFAULT: '#C9A38A',
+                    DEFAULT: '#d9c2a9',
                 },
                 black: {
                     DEFAULT: '#000000',
