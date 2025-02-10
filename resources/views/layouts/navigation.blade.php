@@ -3,7 +3,7 @@
     <header class="bg-gold dark:bg-brown shadow-md py-6">
         <div class="container mx-auto px-4 flex justify-between items-center">
             
-            <a href="{{ route('home') }}" class="flex items-center space-x-3 text-black dark:text-beige hover:text-beige">
+            <a href="{{ route('home') }}" class="flex items-center space-x-3 text-brown dark:text-beige hover:text-beige">
                 <!-- Logo -->
                 <img src="{{ asset('images/B.png') }}" alt="Logo" class="w-10 h-10 md:w-12 md:h-12 rounded-full shadow-lg border-2 border-gold dark:border-beige">
                 
@@ -14,7 +14,7 @@
             </a>            
 
             <!-- Icône du menu hamburger (Mobile) -->
-            <button @click="open = !open" class="md:hidden text-black dark:text-beige focus:outline-none">
+            <button @click="open = !open" class="md:hidden text-brown dark:text-beige focus:outline-none">
                 ☰
             </button>
 
@@ -29,7 +29,7 @@
                         class="w-full px-4 py-2 pr-10 border border-beige rounded-full focus:outline-none 
                                focus:ring-2 focus:ring-gold focus:border-transparent bg-white dark:bg-brown dark:text-beige"
                     />
-                    <button type="submit" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-black dark:text-beige">
+                    <button type="submit" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-brown dark:text-beige">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" 
                                   d="M21 21l-4.35-4.35M17 10A7 7 0 1110 3a7 7 0 017 7z" />
@@ -43,7 +43,7 @@
                         @foreach ($categories as $categorie)
                             <li>
                                 <a href="{{ route('categorie.produits', ['id' => $categorie->id]) }}" 
-                                class="hover:text-beige text-black dark:text-beige">
+                                class="hover:text-beige text-brown dark:text-beige">
                                 {{ $categorie->categorie }}
                                 </a>
                             </li>
@@ -52,7 +52,7 @@
                 </div>
 
                 <!-- Panier -->
-                <a href="{{ route('panier.index') }}" class="font-bold hover:text-beige text-black dark:text-beige">
+                <a href="{{ route('panier.index') }}" class="font-bold hover:text-beige text-brown dark:text-beige">
                     Panier 
                     @if(session('panier') && count(session('panier')) > 0)
                         ({{ count(session('panier')) }})
@@ -63,7 +63,7 @@
                 @guest
                     <!-- Profil invité (Log In / Inscription) -->
                     <div class="relative">
-                        <button @click="guestDropdown = !guestDropdown" class="flex items-center space-x-2 text-black dark:text-beige hover:text-beige">
+                        <button @click="guestDropdown = !guestDropdown" class="flex items-center space-x-2 text-brown dark:text-beige hover:text-beige">
                             <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3a3 3 0 11-.001 6.001A3 3 0 0112 5zm0 14.2c-2.5 0-4.71-1.28-6-3.22 0-2 4-3.08 6-3.08s6 1.08 6 3.08c-1.29 1.94-3.5 3.22-6 3.22z"/>
                             </svg>
@@ -79,7 +79,7 @@
                 @auth
                     <!-- Profil utilisateur -->
                     <div class="relative">
-                        <button @click="userDropdown = !userDropdown" class="flex items-center space-x-2 text-black dark:text-beige hover:text-beige">
+                        <button @click="userDropdown = !userDropdown" class="flex items-center space-x-2 text-brown dark:text-beige hover:text-beige">
                             <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3a3 3 0 11-.001 6.001A3 3 0 0112 5zm0 14.2c-2.5 0-4.71-1.28-6-3.22 0-2 4-3.08 6-3.08s6 1.08 6 3.08c-1.29 1.94-3.5 3.22-6 3.22z"/>
                             </svg>

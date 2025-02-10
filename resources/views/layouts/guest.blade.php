@@ -14,14 +14,14 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-black dark:text-brown bg-beige dark:bg-gold">
+    <body class="font-sans text-brown dark:text-brown bg-beige dark:bg-gold">
 
         <div class="min-h-screen flex flex-col justify-center items-center pt-6 sm:pt-0">
             
             <!-- Logo -->
             <div>
                 <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-brown dark:text-black" />
+                    <x-application-logo class="w-20 h-20 fill-current text-brown dark:text-brown" />
                 </a>
             </div>
 

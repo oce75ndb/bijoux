@@ -18,10 +18,10 @@ export default {
         extend: {
             colors: {
                 beige: {
-                    DEFAULT: '#F5EBE0',
+                    DEFAULT: '#F5EFE6',
                 },
                 gold: {
-                    DEFAULT: '#BEA898',
+                    DEFAULT: '#C9A38A',
                 },
                 black: {
                     DEFAULT: '#000000',

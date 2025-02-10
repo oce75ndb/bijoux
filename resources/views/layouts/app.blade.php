@@ -34,7 +34,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                         <!-- Colonne 1 : À Propos -->
                         <div>
-                            <h4 class="text-lg font-bold text-black dark:text-brown">À Propos</h4>
+                            <h4 class="text-lg font-bold text-brown dark:text-brown">À Propos</h4>
                             <ul class="mt-4 space-y-2">
                                 <li><a href="#" class="text-gold dark:text-beige hover:underline">La marque</a></li>
                                 <li><a href="#" class="text-gold dark:text-beige hover:underline">L'atelier</a></li>
@@ -43,20 +43,20 @@
                         </div>
                         <!-- Colonne 2 : Liens utiles -->
                         <div>
-                            <h4 class="text-lg font-bold text-black dark:text-brown">Liens utiles</h4>
+                            <h4 class="text-lg font-bold text-brown dark:text-brown">Liens utiles</h4>
                             <ul class="mt-4 space-y-2">
                                 <li><a href="#" class="text-gold dark:text-beige hover:underline">Retours et remboursements</a></li>
                                 <li><a href="#" class="text-gold dark:text-beige hover:underline">Mentions légales</a></li>
                                 <li><a href="#" class="text-gold dark:text-beige hover:underline">CGV</a></li>
                             </ul>
                             <div class="mt-4 flex space-x-4">
-                                <a href="#" class="text-black dark:text-beige hover:text-gold"><i class="fab fa-facebook"></i></a>
-                                <a href="#" class="text-black dark:text-beige hover:text-gold"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="text-brown dark:text-beige hover:text-gold"><i class="fab fa-facebook"></i></a>
+                                <a href="#" class="text-brown dark:text-beige hover:text-gold"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                         <!-- Colonne 3 : Contact -->
                         <div>
-                            <h4 class="text-lg font-bold text-black dark:text-brown">Contact</h4>
+                            <h4 class="text-lg font-bold text-brown dark:text-brown">Contact</h4>
                             <ul class="mt-4 space-y-2">
                                 <li><a href="#" class="text-gold dark:text-beige hover:underline">Nous écrire</a></li>
                                 <li><a href="#" class="text-gold dark:text-beige hover:underline">Collaborations</a></li>
@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <div class="container text-center mx-auto px-4 py-4">
-                    <p class="text-black dark:text-brown">&copy; 2024 Océan de Bijoux - Tous droits réservés</p>
+                    <p class="text-brown dark:text-brown">&copy; 2024 Océan de Bijoux - Tous droits réservés</p>
                 </div>
             </footer>
             
