@@ -71,10 +71,6 @@
                     <p class="text-brown dark:text-brown">&copy; 2024 Océan de Bijoux - Tous droits réservés</p>
                 </div>
             </footer>
-            
-
-
-
         </div>       
     </body>
 </html>
