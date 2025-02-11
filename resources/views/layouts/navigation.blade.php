@@ -1,11 +1,11 @@
-<nav x-data="{ open: false, userDropdown: false, guestDropdown: false, categoryDropdown: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+<nav x-data="{ open: false, userDropdown: false, guestDropdown: false, categoryDropdown: false }">
     <!-- Barre de navigation principale -->
     <header class="bg-gold dark:bg-brown shadow-md py-6">
         <div class="container mx-auto px-4 flex justify-between items-center">
             
             <a href="{{ route('home') }}" class="flex items-center space-x-3 text-brown dark:text-beige hover:text-beige">
                 <!-- Logo -->
-                <img src="{{ asset('images/B.png') }}" alt="Logo" class="w-10 h-10 md:w-12 md:h-12 rounded-full shadow-lg border-2 border-gold dark:border-beige">
+                <img src="{{ asset('images/B.png') }}" alt="Logo" class="w-10 h-10 md:w-12 md:h-12 rounded-full shadow-lg border-2 border-beige dark:border-brown">
                 
                 <!-- Titre -->
                 <span class="text-xl md:text-2xl font-bold tracking-wide">
