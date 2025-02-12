@@ -8,4 +8,7 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    build: {
+        minify: true, // Assure que la minification est activée
+    }
 });
