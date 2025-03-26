@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout :categories="$categories">
     <section class="py-12">
         <div class="container mx-auto px-8">
             <!-- Section principale -->

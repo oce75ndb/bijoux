@@ -1,4 +1,4 @@
-<x-app-layout> 
+<x-app-layout :categories="$categories">
     <div class="container mx-auto px-4 py-8">
         
         <!-- Titre principal -->

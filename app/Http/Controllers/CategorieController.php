@@ -12,6 +12,9 @@ class CategorieController extends Controller
      */
     public function getProduitsParCategorie($id)
     {
+        // Récupére la liste des catégories pour le menu
+        $categories = Categorie::all();
+
         // Vérifie que la catégorie existe
         $categorie = Categorie::findOrFail($id);
 
@@ -19,6 +22,6 @@ class CategorieController extends Controller
         $produits = Produit::where('categorie_id', $id)->paginate(12);
 
         // Retourne la vue avec les données
-        return view('produits.categories.index', compact('categorie', 'produits'));
+        return view('produits.categories.index', compact('categories','categorie', 'produits'));
     }
 }

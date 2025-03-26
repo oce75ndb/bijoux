@@ -1,4 +1,4 @@
-<x-app-layout> 
+<x-app-layout :categories="$categories">
     <section class="py-8">
         <div class="container mx-auto px-4">
             
