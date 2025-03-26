@@ -31,10 +31,13 @@ class ProduitController extends Controller
     
     public function show($id)
     {
+        // Récupère toutes les catégories pour le menu
+        $categories = Categorie::all();
+
         // Récupère le produit par son ID ou échoue avec une erreur 404
         $produit = Produit::findOrFail($id);
 
         // Retourne la vue de détails du produit
-        return view('produits.show', compact('produit'));
+        return view('produits.show', compact('categories','produit'));
     }
 }

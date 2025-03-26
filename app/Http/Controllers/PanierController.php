@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Categorie;
 
 class PanierController extends Controller
 {
     public function index()
     {
+        // Récupérer toutes les catégories pour le menu
+        $categories = Categorie::all();
+
         // Récupérer le panier depuis la session
         $panier = session()->get('panier', []);
 
@@ -17,17 +21,17 @@ class PanierController extends Controller
             $total += $article['prix'] * $article['quantite'];
         }
 
-        return view('panier.index', compact('panier', 'total'));
+        return view('panier.index', compact('categories', 'panier', 'total'));
     }
 
     public function ajouter(Request $request)
     {
         // On récupère le panier depuis la session (ou un tableau vide s'il n'existe pas encore)
         $panier = session()->get('panier', []);
-    
+
         // ID du produit
         $id = $request->id;
-    
+
         // Vérifier si le produit existe déjà dans le panier
         if (isset($panier[$id])) {
             // Si oui, on incrémente la quantité
@@ -35,7 +39,7 @@ class PanierController extends Controller
         } else {
             // Récupérer le produit depuis la base de données
             $produit = \App\Models\Produit::findOrFail($id);
-    
+
             // Ajouter le produit au panier
             $panier[$id] = [
                 'nom' => $produit->nom, // Nom du produit
@@ -45,12 +49,12 @@ class PanierController extends Controller
             ];
 
         }
-    
+
         // On sauvegarde le panier dans la session
         session()->put('panier', $panier);
         //return dd($panier);
         return redirect()->route('panier.index')->with('success', 'Produit ajouté au panier !');
-    }    
+    }
 
     public function supprimer($id)
     {
