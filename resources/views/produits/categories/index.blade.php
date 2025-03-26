@@ -11,11 +11,11 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">
                 @forelse ($produits as $index => $produit)
                     <div class="bg-white border border-gold shadow-md rounded-lg p-4 
-                                                transition-transform transform hover:scale-105 active:scale-95 group 
-                                                animate-slide-up delay-[{{ $index * 100 }}ms]">
+                                                        transition-transform transform hover:scale-105 active:scale-95 group 
+                                                        animate-slide-up delay-[{{ $index * 100 }}ms]">
                         <a href="{{ route('produit.show', ['id' => $produit->id]) }}">
                             <img src="{{ asset($produit->image) }}" alt="{{ $produit->nom }}" class="w-full h-48 object-cover rounded mb-4 transition-transform 
-                                                        transform group-hover:scale-105">
+                                                                transform group-hover:scale-105">
                         </a>
                         <h3 class="text-xl font-bold text-brown dark:text-brown">
                             {{ $produit->nom }}
@@ -26,8 +26,9 @@
                         <p class="text-gold font-bold mb-4">
                             {{ number_format($produit->prix, 2) }} €
                         </p>
-                        <a href="{{ route('produit.show', ['id' => $produit->id]) }}" class="block bg-brown dark:bg-brown text-beige py-2 px-4 rounded text-center 
-                                                  transition-transform transform group-hover:bg-gold hover:scale-105">
+                        <a href="{{ route('produit.show', ['id' => $produit->id]) }}"
+                            class="block bg-brown dark:bg-brown text-beige py-2 px-4 rounded text-center 
+                                                          transition-transform transform group-hover:bg-gold hover:scale-105">
                             Voir le produit
                         </a>
                     </div>

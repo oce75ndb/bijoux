@@ -1,0 +1,10 @@
+Océane, Laravel
+
+Comportement bizzare au click sur les vignettes
+Panier : modif de quantité et suppression doit être en AJAX, pour éviter le refresh de toute la page
+Passer à la caisse = Valider le panier ...
+Après ajout au panier, ne pas aller directement à la page panier, plutôt demander 'Panier' ou 'continuer les achats'
+Je ne dois pouvoir payer que si je suis identifié (Sinon pas d'adresse pour la livraison)
+Pas de saisie des données de carte bancaires. A la place, envoyer l'utilisateur vers paypal
+Exiger des mots de passe suffisamment complexes
+Il semble que la catégorie n'est pas prise en compte dans la recherche

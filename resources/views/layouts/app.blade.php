@@ -73,7 +73,8 @@
                 </div>
             </div>
             <div class="container text-center mx-auto px-4 py-4">
-                <p class="text-brown dark:text-brown">&copy; 2024 Océan de Bijoux - Tous droits réservés</p>
+                <p class="text-brown dark:text-brown">&copy; {{ date('Y') }} Océan de Bijoux
+                    - Tous droits réservés</p>
             </div>
         </footer>
     </div>
