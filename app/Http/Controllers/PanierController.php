@@ -9,13 +9,9 @@ class PanierController extends Controller
 {
     public function index()
     {
-        // Récupérer toutes les catégories pour le menu
         $categories = Categorie::all();
-
-        // Récupérer le panier depuis la session
         $panier = session()->get('panier', []);
 
-        // Calculer le montant total
         $total = 0;
         foreach ($panier as $article) {
             $total += $article['prix'] * $article['quantite'];
@@ -26,33 +22,23 @@ class PanierController extends Controller
 
     public function ajouter(Request $request)
     {
-        // On récupère le panier depuis la session (ou un tableau vide s'il n'existe pas encore)
         $panier = session()->get('panier', []);
-
-        // ID du produit
         $id = $request->id;
 
-        // Vérifier si le produit existe déjà dans le panier
         if (isset($panier[$id])) {
-            // Si oui, on incrémente la quantité
             $panier[$id]['quantite'] += 1;
         } else {
-            // Récupérer le produit depuis la base de données
             $produit = \App\Models\Produit::findOrFail($id);
 
-            // Ajouter le produit au panier
             $panier[$id] = [
-                'nom' => $produit->nom, // Nom du produit
-                'prix' => $produit->prix, // Prix du produit
-                'quantite' => 1, // Quantité initiale
-                'image' => $produit->image, // Ajout de l'image du produit
+                'nom' => $produit->nom,
+                'prix' => $produit->prix,
+                'quantite' => 1,
+                'image' => $produit->image,
             ];
-
         }
 
-        // On sauvegarde le panier dans la session
         session()->put('panier', $panier);
-        //return dd($panier);
         return redirect()->route('panier.index')->with('success', 'Produit ajouté au panier !');
     }
 
@@ -65,14 +51,16 @@ class PanierController extends Controller
             session()->put('panier', $panier);
         }
 
+        if (request()->ajax()) {
+            return response()->json(['success' => true]);
+        }
+
         return redirect()->route('panier.index')->with('success', 'Article supprimé du panier !');
     }
 
-
     public function vider()
     {
-        session()->forget('panier'); // Supprime le panier de la session
-
+        session()->forget('panier');
         return redirect()->route('panier.index')->with('success', 'Panier vidé avec succès !');
     }
 
@@ -83,6 +71,10 @@ class PanierController extends Controller
         if (isset($panier[$id])) {
             $panier[$id]['quantite'] += 1;
             session()->put('panier', $panier);
+        }
+
+        if (request()->ajax()) {
+            return response()->json(['success' => true]);
         }
 
         return redirect()->route('panier.index')->with('success', 'Quantité augmentée !');
@@ -96,12 +88,29 @@ class PanierController extends Controller
             $panier[$id]['quantite'] -= 1;
             session()->put('panier', $panier);
         } elseif (isset($panier[$id])) {
-            // Si la quantité est 1, supprime l'article
             unset($panier[$id]);
             session()->put('panier', $panier);
+        }
+
+        if (request()->ajax()) {
+            return response()->json(['success' => true]);
         }
 
         return redirect()->route('panier.index')->with('success', 'Quantité diminuée !');
     }
 
+    public function getPanierHtml()
+    {
+        $categories = Categorie::all();
+        $panier = session('panier', []);
+        $total = 0;
+    
+        foreach ($panier as $item) {
+            $total += $item['prix'] * $item['quantite'];
+        }
+    
+        // On retourne directement le HTML de la vue du panier
+        return view('panier._contenu', compact('panier', 'total'))->render();
+    }    
 }
+?>

@@ -23,6 +23,7 @@ Route::get('/products/{id}', [ProduitController::class, 'show'])->name('produit.
 
 // Route pour afficher le panier
 Route::get('/panier', [PanierController::class, 'index'])->name('panier.index');
+Route::get('/panier/html', [PanierController::class, 'getPanierHtml'])->name('panier.html');
 
 // Route pour vider le panier
 Route::post('/panier/vider', [PanierController::class, 'vider'])->name('panier.vider');

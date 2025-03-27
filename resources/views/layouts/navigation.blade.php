@@ -47,7 +47,7 @@
                         @endphp -->
                         @foreach ($categories as $categorie)
                             <li>
-                                <a href="{{ route('categorie.produits', ['id' => $categorie->id]) }}" wire:navigate
+                                <a href="{{ route('categorie.produits', ['id' => $categorie->id]) }}"
                                     class="hover:text-beige text-brown dark:text-beige transition-all duration-300 hover:scale-105">
                                     {{ $categorie->categorie }}
                                 </a>
