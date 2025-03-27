@@ -14,9 +14,6 @@ Route::get('/produits', ProduitController::class . '@index');
 // ->middleware('auth:sanctum');
 
 // Routes ajoutées après appli
-Route::get('/produits', function () {
-    return Produit::select('id', 'nom', 'slug', 'description', 'prix', 'image', 'stock', 'categorie_id', 'materiau', 'style', 'dimensions', 'fabrication', 'created_at', 'updated_at')->get();
-});
 
 Route::get('/produits', function () {
     return Produit::all();
