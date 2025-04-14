@@ -46,10 +46,11 @@ Route::patch('/panier/decrementer/{id}', [PanierController::class, 'decrementer'
 // Route pour supprimer un par un les produits du panier
 Route::delete('/panier/supprimer/{id}', [PanierController::class, 'supprimer'])->name('panier.supprimer');
 
-// Route pour le checkout
-Route::get('/checkout', function () {
-    return view('checkout.index'); // Ajout du dossier "checkout"
-})->name('checkout');
+// Route pour le checkout (protégée par auth)
+Route::get('/checkout', [CheckoutController::class, 'index'])
+    ->middleware('auth')
+    ->name('checkout');
+
 
 Route::post('/checkout/process', [CheckoutController::class, 'processPayment'])->name('checkout.process');
 
@@ -68,3 +69,5 @@ Route::middleware('auth')->group(function () {
 
 // Route pour l'authentification
 require __DIR__.'/auth.php';
+
+

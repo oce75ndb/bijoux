@@ -45,75 +45,87 @@
         </div>
 
         <!-- Formulaire de paiement -->
-        <form action="{{ route('checkout.process') }}" method="POST" 
-              class="bg-white dark:bg-brown shadow-lg rounded-lg p-6 animate-fade-in-up">
+        <form id="paypal-form" class="bg-white dark:bg-brown shadow-lg rounded-lg p-6 animate-fade-in-up">
             @csrf
 
             <!-- Informations personnelles -->
             <h2 class="text-xl font-bold mb-4 text-black dark:text-beige">Informations de facturation</h2>
 
+            <p class="mb-4 text-sm text-gray-600">
+                Connecté(e) en tant que <strong>{{ Auth::user()->name }}</strong> ({{ Auth::user()->email }})
+            </p>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                     <label for="name" class="block font-semibold text-black dark:text-beige">Nom complet</label>
-                    <input type="text" id="name" name="name" required 
+                    <input type="text" id="name" name="name" required
+                        value="{{ old('name', Auth::user()->name) }}"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gold transition-all">
                 </div>
 
                 <div>
                     <label for="email" class="block font-semibold text-black dark:text-beige">Email</label>
-                    <input type="email" id="email" name="email" required 
+                    <input type="email" id="email" name="email" required
+                        value="{{ old('email', Auth::user()->email) }}"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gold transition-all">
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mt-4">
+                <div>
+                    <label for="adresse" class="block font-semibold text-black dark:text-beige">Adresse</label>
+                    <input type="text" id="adresse" name="adresse" required
+                        value="{{ old('adresse') }}"
+                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gold transition-all">
+                </div>
+
                 <div>
                     <label for="pays" class="block font-semibold text-black dark:text-beige">Pays</label>
-                    <input type="text" id="pays" name="pays" required placeholder="France" 
+                    <input type="text" id="pays" name="pays" required placeholder="France"
+                        value="{{ old('pays') }}"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gold transition-all">
                 </div>
 
                 <div>
                     <label for="ville" class="block font-semibold text-black dark:text-beige">Ville</label>
-                    <input type="text" id="ville" name="ville" required 
+                    <input type="text" id="ville" name="ville" required
+                        value="{{ old('ville') }}"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gold transition-all">
                 </div>
 
                 <div>
                     <label for="code_postal" class="block font-semibold text-black dark:text-beige">Code postal</label>
-                    <input type="text" id="code_postal" name="code_postal" required 
+                    <input type="text" id="code_postal" name="code_postal" required
+                        value="{{ old('code_postal') }}"
                         class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gold transition-all">
                 </div>
             </div>
 
-            <!-- Détails de la carte bancaire -->
-            <h2 class="text-xl font-bold mt-6 mb-4 text-black dark:text-beige">Informations de paiement</h2>
-
-            <div class="mb-4">
-                <label for="carte" class="block font-semibold text-black dark:text-beige">Numéro de carte (fictif)</label>
-                <input type="text" id="carte" name="carte" placeholder="1234 5678 9012 3456" required 
-                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gold transition-all">
-            </div>
-
-            <div class="grid grid-cols-2 gap-4">
-                <div>
-                    <label for="expiration" class="block font-semibold text-black dark:text-beige">Date d'expiration</label>
-                    <input type="text" id="expiration" name="expiration" placeholder="MM/YY" required 
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gold transition-all">
-                </div>
-
-                <div>
-                    <label for="cvv" class="block font-semibold text-black dark:text-beige">CVV</label>
-                    <input type="text" id="cvv" name="cvv" placeholder="123" required 
-                        class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gold transition-all">
-                </div>
-            </div>
-
-            <!-- Bouton de validation -->
-            <button type="submit" 
-                    class="w-full bg-gold text-white py-3 rounded-lg text-lg font-semibold shadow-md hover:bg-black transition-transform transform hover:scale-105 active:scale-95 mt-6">
-                Valider et Payer
-            </button>
+            <!-- Paiement via PayPal -->
+            <h2 class="text-xl font-bold mt-6 mb-4 text-black dark:text-beige">Paiement via paypal</h2>
+            <div id="paypal-button-container" class="mt-4"></div>
         </form>
+
+        <!-- Script PayPal -->
+        <script src="https://www.paypal.com/sdk/js?client-id=AVQXOSVFFIJyUx5t-k19DcQOZDNkcBBiC5oyPbGyogSKO2SB0YivYVJpV-WGoybMwp5pA0TKYa1xaEkn&currency=EUR"></script>
+        <script>
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: '{{ number_format($total, 2, '.', '') }}'
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        alert('Merci ' + details.payer.name.given_name + '! Votre paiement a été effectué avec succès.');
+                        window.location.href = "{{ route('checkout') }}";
+                    });
+                }
+            }).render('#paypal-button-container');
+        </script>
     </div>
 </x-app-layout>
