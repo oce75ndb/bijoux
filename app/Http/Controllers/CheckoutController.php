@@ -66,6 +66,7 @@ class CheckoutController extends Controller
         
         session()->forget('panier');
 
-        return redirect()->route('checkout')->with('success', 'Commande et articles enregistrée ! 🎉');
+        return redirect()->route('confirmation')->with('success', 'Merci pour votre commande 💖');
+
     }
 }
