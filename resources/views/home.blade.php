@@ -1,7 +1,7 @@
 <x-app-layout :categories="$categories">
 
     <!-- Section Bannière -->
-    <section class="font-sans bg-beige dark:bg-gold py-20 text-center animate-fade-in">
+    <section class="font-sans bg-beige dark:bg-gold pt-10 pb-8 text-center animate-fade-in">
         <h2 class="text-4xl font-bold text-brown dark:text-brown">
             Découvrez nos bijoux uniques
         </h2>
@@ -15,12 +15,12 @@
     </section>
 
     <!-- Section Produits Vedettes -->
-    <section class="bg-beige dark:bg-gold py-12">
+    <section class="bg-beige dark:bg-gold py-8">
         <div class="container mx-auto px-4">
             <h3 class="text-2xl font-bold text-center text-brown dark:text-brown animate-fade-in">
                 Produits Vedettes
             </h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-4">
 
                 @if ($produitA)
                     <a href="{{ route('produit.show', ['id' => $produitA->id]) }}"

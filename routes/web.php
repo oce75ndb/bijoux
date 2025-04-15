@@ -43,7 +43,7 @@ Route::get('/confirmation', function () {
 
 // Dashboard
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->route('home');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 /*
