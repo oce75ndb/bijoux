@@ -97,7 +97,7 @@
                                 <path
                                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3a3 3 0 11-.001 6.001A3 3 0 0112 5zm0 14.2c-2.5 0-4.71-1.28-6-3.22 0-2 4-3.08 6-3.08s6 1.08 6 3.08c-1.29 1.94-3.5 3.22-6 3.22z" />
                             </svg>
-                            <span>{{ Auth::user()->name }}</span>
+                            <span>{{ Auth::user()->prenom }}</span>
                         </button>
                         <ul x-show="userDropdown" @click.away="userDropdown = false"
                             class="absolute right-0 mt-2 bg-white dark:bg-brown shadow-md rounded-lg w-40 transition-all duration-300 opacity-1 translate-y-2"

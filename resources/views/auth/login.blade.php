@@ -41,5 +41,13 @@
                     {{ __('Se connecter') }}
                 </x-primary-button>
             </div>
+
+            <div class="mt-6 text-center animate-slide-up delay-400">
+                <span class="text-sm text-gray-600 dark:text-gray-400">Pas encore de compte ?</span>
+                <a href="{{ route('register') }}" class="ml-2 text-sm text-gold hover:underline dark:text-gold/90">
+                    S’inscrire
+                </a>
+            </div>
+            
         </form>
 </x-guest-layout>
