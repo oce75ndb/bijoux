@@ -7,7 +7,7 @@
 
     <script>
         function modifierQuantite(url) {
-            console.log(url);
+            // console.log(url);
             if (url.includes('decrementer') && parseInt(document.querySelector('#qte').innerText) <= 1) {
                 return;
             }
