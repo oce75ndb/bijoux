@@ -24,6 +24,7 @@ Route::get('/products/{id}', [ProduitController::class, 'show'])->name('produit.
 
 // Panier
 Route::get('/panier', [PanierController::class, 'index'])->name('panier.index');
+Route::put('/panier', [PanierController::class, 'index']);
 Route::get('/panier/html', [PanierController::class, 'getPanierHtml'])->name('panier.html');
 Route::post('/panier/vider', [PanierController::class, 'vider'])->name('panier.vider');
 Route::post('/panier/ajouter', [PanierController::class, 'ajouter'])->name('panier.ajouter');
