@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class="max-w-2xl mx-auto pt-24 pb-12 px-6 bg-beige rounded-2xl shadow-lg border border-gold dark:border-brown">
+    <div class="max-w-2xl mx-auto my-12 p-8 bg-beige rounded-2xl shadow-lg border border-gold dark:border-brown">
         <h2 class="text-3xl font-extrabold text-center mb-8 text-gold dark:text-brown tracking-wide">
-            Contactez-nous
+            Contactez-nous 🐚
         </h2>
 
         @if (session('success'))
@@ -33,7 +33,7 @@
 
             <div class="text-center">
                 <button type="submit"
-                    class="bg-pink-600 hover:bg-pink-700 text-white font-semibold px-6 py-2 rounded-xl shadow-md transition duration-300">
+                    class="bg-gold hover:bg-gold text-white font-semibold px-6 py-2 rounded-xl shadow-md transition duration-300">
                     Envoyer
                 </button>
             </div>
