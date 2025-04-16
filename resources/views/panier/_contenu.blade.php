@@ -27,7 +27,7 @@
                                 <button onclick="modifierQuantite('{{ route('panier.decrementer', $id) }}')" class="bg-gray-200 dark:bg-brown text-brown px-3 py-1 rounded-full hover:bg-gray-300 transition-transform transform hover:scale-105 active:scale-95" @if($article['quantite'] <= 1) disabled @endif>
                                     -
                                 </button>
-                                <span class="text-lg font-semibold">
+                                <span id="qte" class="text-lg font-semibold">
                                     {{ $article['quantite'] }}
                                 </span>
                                 <button onclick="modifierQuantite('{{ route('panier.incrementer', $id) }}')" class="bg-gray-200 dark:bg-brown text-brown px-3 py-1 rounded-full hover:bg-gray-300 transition-transform transform hover:scale-105 active:scale-95">

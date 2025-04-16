@@ -7,12 +7,15 @@
 
     <script>
         function modifierQuantite(url) {
+            console.log(url);
             fetch(url, {
                 method: 'PUT',
                 headers: {
                     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
                 }
-            }).then(() => rafraichirPanier());
+            }).then(() => {
+                document.querySelector('#qte').innerText = parseInt(document.querySelector('#qte').innerText) + (url.includes('incrementer') ? 1 : -1);
+            });
         }
 
         function supprimerProduit(url) {
