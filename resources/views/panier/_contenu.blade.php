@@ -37,13 +37,13 @@
                         </td>
 
                         <td class="border border-brown px-4 py-3 text-center">
-                            <span class="font-semibold text-gold">
+                            <span id="prix_article" class="font-semibold text-gold">
                                 {{ number_format($article['prix'], 2) }} €
                             </span>
                         </td>
 
                         <td class="border border-brown px-4 py-3 text-center">
-                            <span class="font-semibold text-gold">
+                            <span id="total" class="font-semibold text-gold">
                                 {{ number_format($article['prix'] * $article['quantite'], 2) }} €
                             </span>
                         </td>

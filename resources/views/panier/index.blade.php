@@ -7,7 +7,9 @@
 
     <script>
         function modifierQuantite(url) {
-            console.log(url);
+            if (url.includes('decrementer') && parseInt(document.querySelector('#qte').innerText) <= 1) {
+                return;
+            }
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -15,6 +17,7 @@
                 }
             }).then(() => {
                 document.querySelector('#qte').innerText = parseInt(document.querySelector('#qte').innerText) + (url.includes('incrementer') ? 1 : -1);
+                document.querySelector('#total').innerText = (parseFloat(document.querySelector('#prix_article').innerText) * parseInt(document.querySelector('#qte').innerText)).toFixed(2) + ' €';
             });
         }
 
