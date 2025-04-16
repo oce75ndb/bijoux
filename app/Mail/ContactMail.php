@@ -23,7 +23,7 @@ class ContactMail extends Mailable
 
     public function build()
     {
-        return $this->subject('💌 Nouveau message - Océan de Bijoux')
+        return $this->subject('Nouveau message - 🌊✨Océan de Bijoux✨🌊')
                     ->view('emails.contact');
     }
 }
