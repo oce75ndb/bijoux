@@ -6,7 +6,7 @@
 </head>
 <body style="font-family: Arial, sans-serif; background: #f9f9f9; color: #333;">
     <div style="max-width: 600px; margin: auto; padding: 20px; background: #fff; border-radius: 8px;">
-        <h2 style="color: #b77db5;">💌 Nouveau message depuis Océan de Bijoux</h2>
+        <h2 style="color: #D9C2A9;">💌 Nouveau message depuis Océan de Bijoux</h2>
 
         <p><strong>Nom :</strong> {{ $nom }}</p>
         <p><strong>Email :</strong> {{ $email }}</p>
