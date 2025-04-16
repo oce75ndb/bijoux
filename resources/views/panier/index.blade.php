@@ -6,21 +6,44 @@
     </div>
 
     <script>
-        function modifierQuantite(url) {
-            // console.log(url);
-            if (url.includes('decrementer') && parseInt(document.querySelector('#qte').innerText) <= 1) {
-                return;
-            }
-            fetch(url, {
-                method: 'PUT',
-                headers: {
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
-                }
-            }).then(() => {
-                document.querySelector('#qte').innerText = parseInt(document.querySelector('#qte').innerText) + (url.includes('incrementer') ? 1 : -1);
-                document.querySelector('#total').innerText = (parseFloat(document.querySelector('#prix_article').innerText) * parseInt(document.querySelector('#qte').innerText)).toFixed(2) + ' €';
-            });
+    function recalculerMontantTotal() {
+        let total = 0;
+        document.querySelectorAll('#total').forEach(element => {
+            let montant = parseFloat(element.innerText.replace('€', '').replace(',', '.'));
+            total += montant;
+        });
+        document.querySelector('#panier-total').innerText = total.toFixed(2) + ' €';
+    }
+
+    function modifierQuantite(url, bouton) {
+        // Récupérer le conteneur de la ligne courante
+        const ligne = bouton.closest('tr');
+
+        const qteElement = ligne.querySelector('#qte');
+        const prixElement = ligne.querySelector('#prix_article');
+        const totalElement = ligne.querySelector('#total');
+
+        let currentQte = parseInt(qteElement.innerText);
+
+        if (url.includes('decrementer') && currentQte <= 1) {
+            return;
         }
+
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+            }
+        }).then(() => {
+            let nouvelleQte = currentQte + (url.includes('incrementer') ? 1 : -1);
+            qteElement.innerText = nouvelleQte;
+
+            let prix = parseFloat(prixElement.innerText.replace('€', '').replace(',', '.'));
+            totalElement.innerText = (prix * nouvelleQte).toFixed(2) + ' €';
+
+            recalculerMontantTotal();
+        });
+    }
 
         function supprimerProduit(url) {
             fetch(url, {

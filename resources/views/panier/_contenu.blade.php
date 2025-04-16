@@ -7,7 +7,7 @@
                     <th class="border border-brown px-4 py-3">Quantité</th>
                     <th class="border border-brown px-4 py-3">Prix</th>
                     <th class="border border-brown px-4 py-3">Total</th>
-                    <th class="border border-brown px-4 py-3">Actions</th>
+                    <th class="border border-brown px-4 py-3"></th>
                 </tr>
             </thead>
             <tbody class="bg-white dark:bg-beige">
@@ -22,15 +22,15 @@
                             </span>
                         </td>
 
-                        <td class="border border-brown px-4 py-3 text-center">
+                        <td class="border border-brown py-3 text-center">
                             <div class="flex items-center justify-center space-x-3">
-                                <button onclick="modifierQuantite('{{ route('panier.decrementer', $id) }}')" class="bg-gray-200 dark:bg-brown text-brown px-3 py-1 rounded-full hover:bg-gray-300 transition-transform transform hover:scale-105 active:scale-95" @if($article['quantite'] <= 1) disabled @endif>
+                                <button onclick="modifierQuantite('{{ route('panier.decrementer', $id) }}', this)" class="bg-gray-200 dark:bg-brown text-brown px-3 py-1 rounded-full hover:bg-gray-300 transition-transform transform hover:scale-105 active:scale-95" @if($article['quantite'] <= 1) disabled @endif>
                                     -
                                 </button>
                                 <span id="qte" class="text-lg font-semibold">
                                     {{ $article['quantite'] }}
                                 </span>
-                                <button onclick="modifierQuantite('{{ route('panier.incrementer', $id) }}')" class="bg-gray-200 dark:bg-brown text-brown px-3 py-1 rounded-full hover:bg-gray-300 transition-transform transform hover:scale-105 active:scale-95">
+                                <button onclick="modifierQuantite('{{ route('panier.incrementer', $id) }}', this)" class="bg-gray-200 dark:bg-brown text-brown px-3 py-1 rounded-full hover:bg-gray-300 transition-transform transform hover:scale-105 active:scale-95">
                                     +
                                 </button>
                             </div>
@@ -48,9 +48,9 @@
                             </span>
                         </td>
 
-                        <td class="border border-brown px-4 py-3 text-center">
+                        <td class="border border-brown py-3 text-center">
                             <button onclick="supprimerProduit('{{ route('panier.supprimer', $id) }}')" class="font-bold text-red-500 hover:text-red-700 transition-transform transform hover:scale-110">
-                                ❌ Supprimer
+                                ❌
                             </button>
                         </td>
                     </tr>
@@ -61,7 +61,7 @@
 
     <div class="mt-6 text-right animate-fade-in">
         <h2 class="text-2xl font-bold text-brown dark:text-beige">
-            Montant total : <span class="text-gold">{{ number_format($total, 2) }} €</span>
+            Montant total : <span id="panier-total" class="text-gold">{{ number_format($total, 2) }} €</span>
         </h2>
     </div>
 
