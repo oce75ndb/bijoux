@@ -17,4 +17,10 @@ class Commandeligne extends Model
         'quantite',
         'prix',
     ];
+
+    public function commande()
+    {
+        return $this->belongsTo(Commande::class);
+    }
+
 }

@@ -105,6 +105,11 @@
                             x-transition:leave="opacity-100 translate-y-0" x-transition:leave-end="opacity-1 translate-y-2">
                             <li><a href="{{ route('profile.edit') }}"
                                     class="block px-4 py-2 hover:bg-gold dark:hover:bg-gray-700">Profil</a></li>
+
+                                    <!-- 🔥 Ajout Mes commandes -->
+                            <li><a href="{{ route('commandes.historique') }}"
+                                class="block px-4 py-2 hover:bg-gold dark:hover:bg-gray-700">Mes commandes</a></li>
+
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf

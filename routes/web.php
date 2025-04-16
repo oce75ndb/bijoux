@@ -8,6 +8,7 @@ use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\PanierController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CommandeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,13 @@ Route::delete('/panier/supprimer/{id}', [PanierController::class, 'supprimer'])-
 // Checkout
 Route::get('/checkout', [CheckoutController::class, 'index'])->middleware('auth')->name('checkout');
 Route::post('/checkout/process', [CheckoutController::class, 'processPayment'])->name('checkout.process');
+
+// Commandes
+Route::get('/mes-commandes', [CommandeController::class, 'historique'])
+->middleware(['auth'])->name('commandes.historique');
+Route::get('/commande/{id}/facture', [CommandeController::class, 'facture'])
+->middleware(['auth'])->name('commandes.facture');
+
 
 // Confirmation
 Route::get('/confirmation', function () {
