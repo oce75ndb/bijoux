@@ -1,7 +1,7 @@
 <x-app-layout :categories="$categories">
 
     <!-- Section Bannière -->
-    <section class="font-sans bg-beige dark:bg-gold pt-10 pb-8 text-center animate-fade-in">
+    <section class="font-sans bg-beige dark:bg-gold pt-12 pb-8 text-center animate-fade-in">
         <h2 class="text-4xl font-bold text-brown dark:text-brown">
             Découvrez nos bijoux uniques
         </h2>
