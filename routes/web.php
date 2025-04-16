@@ -28,8 +28,8 @@ Route::get('/panier/html', [PanierController::class, 'getPanierHtml'])->name('pa
 Route::post('/panier/vider', [PanierController::class, 'vider'])->name('panier.vider');
 Route::post('/panier/ajouter', [PanierController::class, 'ajouter'])->name('panier.ajouter');
 Route::delete('/panier/{id}', [PanierController::class, 'supprimer'])->name('panier.supprimer');
-Route::patch('/panier/incrementer/{id}', [PanierController::class, 'incrementer'])->name('panier.incrementer');
-Route::patch('/panier/decrementer/{id}', [PanierController::class, 'decrementer'])->name('panier.decrementer');
+Route::put('/panier/incrementer/{id}', [PanierController::class, 'incrementer'])->name('panier.incrementer');
+Route::put('/panier/decrementer/{id}', [PanierController::class, 'decrementer'])->name('panier.decrementer');
 Route::delete('/panier/supprimer/{id}', [PanierController::class, 'supprimer'])->name('panier.supprimer');
 
 // Checkout

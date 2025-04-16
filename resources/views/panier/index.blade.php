@@ -8,7 +8,7 @@
     <script>
         function modifierQuantite(url) {
             fetch(url, {
-                method: 'PATCH',
+                method: 'PUT',
                 headers: {
                     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
                 }
