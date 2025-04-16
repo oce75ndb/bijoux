@@ -16,7 +16,6 @@
     }
 
     function modifierQuantite(url, bouton) {
-        // Récupérer le conteneur de la ligne courante
         const ligne = bouton.closest('tr');
 
         const qteElement = ligne.querySelector('#qte');
