@@ -63,10 +63,14 @@ class CheckoutController extends Controller
                 'prix' => $article['prix'],
             ]);
         }
-        
+
+        // 5. Envoi du mail de confirmation ✨
+        Mail::to($request->input('email'))->send(new CommandeValidée($request->input('prenom'), $commande));
+
+        // 6. Nettoyage du panier
         session()->forget('panier');
 
-        return redirect()->route('confirmation')->with('success', 'Merci pour votre commande 💖');
-
+        // 7. Redirection
+        return redirect()->route('/')->with('success', 'Merci pour votre commande 💖');
     }
 }

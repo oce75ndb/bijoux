@@ -30,7 +30,7 @@
         <!-- Page Content -->
         <main class="bg-beige dark:bg-gold">
             {{ $slot }}
-        </main>
+        </main>        
 
         <!-- Pied de page -->
         <footer class="bg-beige dark:bg-gold py-8">
@@ -65,7 +65,7 @@
                     <div>
                         <h4 class="text-lg font-bold text-brown dark:text-brown">Contact</h4>
                         <ul class="mt-4 space-y-2">
-                            <li><a href="#" class="text-gold dark:text-beige hover:underline">Nous écrire</a></li>
+                            <li><a href="{{ route('contact') }}" class="text-gold dark:text-beige hover:underline">Nous écrire</a></li>
                             <li><a href="#" class="text-gold dark:text-beige hover:underline">Collaborations</a></li>
                             <li><a href="#" class="text-gold dark:text-beige hover:underline">Nous distribuer</a></li>
                         </ul>

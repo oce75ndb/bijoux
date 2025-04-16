@@ -7,6 +7,7 @@ use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\PanierController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,12 @@ Route::get('/confirmation', function () {
 Route::get('/dashboard', function () {
     return redirect()->route('home');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Contact
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+Route::post('/contact', [ContactController::class, 'envoyer'])->name('contact.send');
 
 /*
 |--------------------------------------------------------------------------
