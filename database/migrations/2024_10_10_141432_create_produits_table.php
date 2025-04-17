@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('image')->nullable(true);
             $table->integer('stock')->nullable(false)->default(0);
             $table->foreignId('categorie_id')->constrained('categories');
-            $table->string('materiau')->nullable(true);
+            $table->string('materiau')->nullable();
             $table->string('style')->nullable(true);
             $table->string('dimensions')->nullable(true);
             $table->string('fabrication')->nullable(true);

@@ -13,7 +13,6 @@ return new class extends Migration {
         if (!Schema::hasTable('categories')) {
             Schema::create('categories', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('parent_id')->nullable()->constrained('categories'); // Ajoute `nullable()`
                 $table->string('categorie', 100);
                 $table->timestamp('created_at')->useCurrent();
                 $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
