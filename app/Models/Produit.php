@@ -16,4 +16,16 @@ class Produit extends Model
         'image',
         'categorie_id',
     ];
+
+    protected $casts = [
+        'prix' => 'decimal:2',
+    ];
+    public function commandeslignes()
+    {
+        return $this->hasMany(CommandeLigne::class);
+    }
+    public function categorie()
+    {
+        return $this->belongsTo(Categorie::class);
+    }
 }

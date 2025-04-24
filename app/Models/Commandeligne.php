@@ -15,7 +15,9 @@ class Commandeligne extends Model
         'commande_id',
         'produit_id',
         'quantite',
-        'prix',
+        'prix_unitaire',
+        'total',
+
     ];
 
     public function commande()
@@ -23,4 +25,8 @@ class Commandeligne extends Model
         return $this->belongsTo(Commande::class);
     }
 
+    public function produit()
+    {
+        return $this->belongsTo(Produit::class);
+    }
 }

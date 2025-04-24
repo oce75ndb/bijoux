@@ -12,18 +12,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Seeder pour les utilisateurs
-        User::factory()->create([
-            'name' => 'Test',
-            'prenom' => 'User',
-            'email' => 'test@example.com',
-            'password' => bcrypt('password'), // Hasher le mot de passe
-        ]);
 
         // Appel des seeders pour les catégories et les produits
         $this->call([
+            UserSeeder::class,
             CategorySeeder::class,
             ProductSeeder::class,
+            CommandeSeeder::class,
         ]);
     }
 }

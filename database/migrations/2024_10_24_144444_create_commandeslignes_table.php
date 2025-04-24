@@ -13,15 +13,17 @@ return new class extends Migration
     {
         Schema::create('commandeslignes', function (Blueprint $table) {
             $table->id();
-    
             $table->unsignedBigInteger('commande_id');
-            $table->unsignedBigInteger('produit_id');
+            $table->unsignedBigInteger('produit_id'); // or 'article_id' depending on your naming
             $table->integer('quantite')->default(1);
-            $table->decimal('prix', 8, 2)->default(0);
-    
-            $table->timestamps();
-    
-            // Clés étrangères (facultatif mais recommandé)
+            $table->decimal('prix_unitaire', 10, 2); // price at the time of order
+            $table->decimal('total', 10, 2); // prix_unitaire * quantite
+        
+            // Timestamps
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate(); 
+        
+            // Foreign key constraints
             $table->foreign('commande_id')->references('id')->on('commandes')->onDelete('cascade');
             $table->foreign('produit_id')->references('id')->on('produits')->onDelete('cascade');
         });

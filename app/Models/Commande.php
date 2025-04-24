@@ -8,20 +8,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Commande extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'user_id',
-        'prenom',
-        'nom',
-        'email',
-        'adresse',
-        'ville',
-        'code_postal',
-        'total',
+        'date',
+        'prix',
+
     ];
+    protected $casts = [
+        'prix' => 'decimal:2',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function lignes()
     {
-        return $this->hasMany(Commandeligne::class);
+        return $this->hasMany(CommandeLigne::class);
     }
 }

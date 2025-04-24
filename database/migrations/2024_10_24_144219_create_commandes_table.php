@@ -13,17 +13,15 @@ return new class extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('slug', 100);
-            $table->text('description')->nullable(true);
+            $table->unsignedBigInteger('user_id');
+            $table->date('date')->nullable(false);
             $table->decimal('prix', 10, 2);
-            $table->string('image')->nullable(true);
-            $table->integer('stock')->nullable(false)->default(0);
-            $table->foreignId('categorie_id')->constrained('categories');
-            //$table->timestamps();
+
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate(); 
 
+            // Foreign key constraints
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

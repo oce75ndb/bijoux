@@ -51,4 +51,9 @@ class User extends Authenticatable implements MustVerifyEmail
             'password' => 'hashed',
         ];
     }
+
+    public function commandes()
+    {
+        return $this->hasMany(Commande::class);
+    }
 }
