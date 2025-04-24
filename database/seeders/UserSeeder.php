@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             'name' => 'Bondon',
             'prenom' => 'Océane',
             'email' => 'oceanebondon30@gmail.com',
-            'password' => bcrypt('password'), // Hasher le mot de passe
+            'password' => bcrypt('Ilona2005.'), // Hasher le mot de passe
         ]);
     }
 }
