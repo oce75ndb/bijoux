@@ -7,7 +7,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Commande;
 use App\Models\Categorie;
-use App\Models\Commandeligne;
+use App\Models\CommandeLigne;
+
 class CommandeSeeder extends Seeder
 {
     /**
