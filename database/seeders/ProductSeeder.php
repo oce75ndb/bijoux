@@ -23,10 +23,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bagues/bague1.jpg',
             'stock' => 5,
             'categorie_id' => 4,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Bague Fine en Or',
@@ -36,10 +36,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bagues/bague2.jpg',
             'stock' => 5,
             'categorie_id' => 4,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Bague Solitaire Dorée',
@@ -49,10 +49,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bagues/bague3.jpg',
             'stock' => 5,
             'categorie_id' => 4,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Bague Fantaisie Dorée',
@@ -62,10 +62,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bagues/bague4.jpg',
             'stock' => 5,
             'categorie_id' => 4,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Bague à Strass Dorée',
@@ -75,10 +75,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bagues/bague5.jpg',
             'stock' => 5,
             'categorie_id' => 4,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Bague Tressée Dorée',
@@ -88,10 +88,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bagues/bague6.jpg',
             'stock' => 5,
             'categorie_id' => 4,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Bague Vintage Dorée',
@@ -101,10 +101,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bagues/bague7.jpg',
             'stock' => 5,
             'categorie_id' => 4,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Bague Fleur Dorée',
@@ -114,10 +114,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bagues/bague8.jpg',
             'stock' => 5,
             'categorie_id' => 4,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Bague Minimaliste Dorée',
@@ -127,10 +127,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bagues/bague9.jpg',
             'stock' => 5,
             'categorie_id' => 4,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Bague Royale Dorée',
@@ -140,10 +140,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bagues/bague10.jpg',
             'stock' => 5,
             'categorie_id' => 4,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
 
         // Bracelets
@@ -155,10 +155,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bracelets/bracelet1.jpg',
             'stock' => 5,
             'categorie_id' => 2,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Bracelet Chaîne Dorée',
@@ -168,10 +168,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bracelets/bracelet2.jpg',
             'stock' => 5,
             'categorie_id' => 2,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Bracelet Torsadé Doré',
@@ -181,10 +181,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bracelets/bracelet3.jpg',
             'stock' => 5,
             'categorie_id' => 2,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Bracelet Perlé Doré',
@@ -194,10 +194,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bracelets/bracelet4.jpg',
             'stock' => 5,
             'categorie_id' => 2,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Bracelet Cœur Doré',
@@ -207,10 +207,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bracelets/bracelet5.jpg',
             'stock' => 5,
             'categorie_id' => 2,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Bracelet Manchette Dorée',
@@ -220,10 +220,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bracelets/bracelet6.jpg',
             'stock' => 5,
             'categorie_id' => 2,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Bracelet Charme Doré',
@@ -233,10 +233,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bracelets/bracelet7.jpg',
             'stock' => 5,
             'categorie_id' => 2,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Bracelet Fantaisie Doré',
@@ -246,10 +246,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bracelets/bracelet8.jpg',
             'stock' => 5,
             'categorie_id' => 2,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Bracelet Fin Doré',
@@ -259,10 +259,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bracelets/bracelet9.jpg',
             'stock' => 5,
             'categorie_id' => 2,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Bracelet Étoile Doré',
@@ -272,10 +272,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/bracelets/bracelet10.jpg',
             'stock' => 5,
             'categorie_id' => 2,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
 
         // Colliers
@@ -287,10 +287,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/colliers/collier1.jpg',
             'stock' => 5,
             'categorie_id' => 1,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Collier Chaîne Dorée',
@@ -300,10 +300,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/colliers/collier2.jpg',
             'stock' => 5,
             'categorie_id' => 1,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Collier Ras de Cou Doré',
@@ -313,10 +313,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/colliers/collier3.jpg',
             'stock' => 5,
             'categorie_id' => 1,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Collier Fantaisie Doré',
@@ -326,10 +326,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/colliers/collier4.jpg',
             'stock' => 5,
             'categorie_id' => 1,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Collier Long Doré',
@@ -339,10 +339,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/colliers/collier5.jpg',
             'stock' => 5,
             'categorie_id' => 1,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Collier Perlé Doré',
@@ -352,10 +352,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/colliers/collier6.jpg',
             'stock' => 5,
             'categorie_id' => 1,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Collier Fleur Doré',
@@ -365,10 +365,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/colliers/collier7.jpg',
             'stock' => 5,
             'categorie_id' => 1,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Collier Médaillon Doré',
@@ -378,10 +378,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/colliers/collier8.jpg',
             'stock' => 5,
             'categorie_id' => 1,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Collier Élégance Doré',
@@ -391,10 +391,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/colliers/collier9.jpg',
             'stock' => 5,
             'categorie_id' => 1,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Collier Minimaliste Doré',
@@ -404,10 +404,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/colliers/collier10.jpg',
             'stock' => 5,
             'categorie_id' => 1,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
 
         // Boucles d'Oreilles
@@ -419,10 +419,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/boucles/boucles1.jpg',
             'stock' => 5,
             'categorie_id' => 3,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Boucles Pendantes Dorées',
@@ -432,10 +432,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/boucles/boucles2.jpg',
             'stock' => 5,
             'categorie_id' => 3,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Boucles Puces Dorées',
@@ -445,10 +445,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/boucles/boucles3.jpg',
             'stock' => 5,
             'categorie_id' => 3,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Boucles Strass Dorées',
@@ -458,10 +458,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/boucles/boucles4.jpg',
             'stock' => 5,
             'categorie_id' => 3,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Boucles Fantaisie Dorées',
@@ -471,10 +471,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/boucles/boucles5.jpg',
             'stock' => 5,
             'categorie_id' => 3,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Boucles Classiques Dorées',
@@ -484,10 +484,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/boucles/boucles6.jpg',
             'stock' => 5,
             'categorie_id' => 3,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Boucles Torsadées Dorées',
@@ -497,10 +497,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/boucles/boucles7.jpg',
             'stock' => 5,
             'categorie_id' => 3,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Boucles Longues Dorées',
@@ -510,10 +510,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/boucles/boucles8.jpg',
             'stock' => 5,
             'categorie_id' => 3,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Boucles Discrètes Dorées',
@@ -523,10 +523,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/boucles/boucles9.jpg',
             'stock' => 5,
             'categorie_id' => 3,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
         Produit::create([
             'nom' => 'Boucles Élégance Dorées',
@@ -536,10 +536,10 @@ class ProductSeeder extends Seeder
             'image' => 'images/boucles/boucles10.jpg',
             'stock' => 5,
             'categorie_id' => 3,
-            'materiau' => 'or',
-            'style' => $styles[array_rand($styles)],
+            'materiau' => rand(1,4),
+            'style' => rand(1,4),
             'dimensions' => $dimensions[array_rand($dimensions)],
-            'fabrication' => $fabrications[array_rand($fabrications)],
+            'fabrication' => rand(1,3),
         ]);
     }
 }

@@ -28,4 +28,18 @@ class Produit extends Model
     {
         return $this->belongsTo(Categorie::class);
     }
+
+    public function fabrication()
+    {
+        return $this->belongsTo(Fabrication::class);
+    }
+
+    public function materiau()
+    {
+        return $this->belongsTo(Materiau::class);
+    }
+    public function style()
+    {
+        return $this->belongsTo(Style::class);
+    }
 }
