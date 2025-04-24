@@ -20,10 +20,10 @@ return new class extends Migration
             $table->string('image')->nullable(true);
             $table->integer('stock')->nullable(false)->default(0);
             $table->foreignId('categorie_id')->constrained('categories');
-            $table->string('materiau')->constrained('materiaux')->nullable();
-            $table->string('style')->constrained('styles')->nullable(true);
+            $table->foreignId('materiau')->constrained('materiaux')->nullable();
+            $table->foreignId('style')->constrained('styles')->nullable(true);
             $table->string('dimensions')->nullable(true);
-            $table->string('fabrication')->constrained('fabrications')->nullable(true);
+            $table->foreignId('fabrication')->constrained('fabrications')->nullable(true);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
