@@ -34,19 +34,20 @@
 
         <!-- Pied de page -->
         <footer class="bg-beige dark:bg-gold py-8">
-            <div class="max-w-7xl mx-auto px-4 py-4 shadow-md rounded-lg border border-gold dark:border-brown">
-                <div class="grid grid-cols-2">
+            <div class="container mx-auto px-4 py-4 shadow-md rounded-lg border border-gold dark:border-brown">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                     <!-- Colonne 1 : Liens utiles -->
-                    <div class="text-center">
+                    <div>
                         <h4 class="text-lg font-bold text-brown dark:text-brown">Liens utiles</h4>
                         <ul class="mt-4 space-y-2">
-                            <li><a href="{{ route('page.static', 'retours') }}" class="text-gold dark:text-beige hover:underline">Retours et remboursements</a></li>
+                            <li><a href="{{ route('page.static', 'retours') }}" class="text-gold dark:text-beige hover:underline">Retours et
+                                    remboursements</a></li>
                             <li><a href="{{ route('page.static', 'mentions-legales') }}" class="text-gold dark:text-beige hover:underline">Mentions légales</a></li>
                             <li><a href="{{ route('page.static', 'cgv') }}" class="text-gold dark:text-beige hover:underline">CGV</a></li>
                         </ul>
                     </div>
                     <!-- Colonne 2 : Contact -->
-                    <div class="text-center">
+                    <div>
                         <h4 class="text-lg font-bold text-brown dark:text-brown">Contact</h4>
                         <ul class="mt-4 space-y-2">
                             <li><a href="{{ route('contact') }}" class="text-gold dark:text-beige hover:underline">Nous écrire</a></li>
@@ -57,9 +58,10 @@
                 </div>
             </div>
             <div class="container text-center mx-auto px-4 py-4">
-                <p class="text-brown dark:text-brown">&copy; {{ date('Y') }} Océan de Bijoux - Tous droits réservés</p>
+                <p class="text-brown dark:text-brown">&copy; {{ date('Y') }} Océan de Bijoux
+                    - Tous droits réservés</p>
             </div>
-        </footer>        
+        </footer>
     </div>
 </body>
 
