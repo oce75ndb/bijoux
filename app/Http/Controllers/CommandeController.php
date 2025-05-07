@@ -12,8 +12,12 @@ class CommandeController extends Controller
 {
     public function historique()
     {
-        $commandes = Commande::where('user_id', Auth::id())->latest()->get();
-        return view('commandes.historique', compact('commandes'));
+        $commandes = Commande::with('commandeligne.produit')
+            ->where('user_id', Auth::id())
+            ->latest()
+            ->get();
+
+        return view('historique', compact('commandes'));
     }
 
     public function facture($id)

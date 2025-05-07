@@ -63,7 +63,7 @@ Route::get('/contact', function () {
 })->name('contact');
 
 // Pages statiques
-Route::get('/{page}', function ($page) {
+Route::get('/page/{page}', function ($page) {
     $pages = [
         'cgv' => [
             'titre' => 'Conditions Générales de Vente',
