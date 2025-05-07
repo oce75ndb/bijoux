@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <title>Facture commande #{{ $commande->id }}</title>
     <style>
-        @page { margin: 40px; }
+        @page {
+            margin: 40px;
+        }
+
         body {
             font-family: DejaVu Sans, sans-serif;
             font-size: 14px;
-            color: #4a2e2a; /* Marron clair */
-            background-color: #fffaf5; /* Beige doux */
+            color: #4a2e2a;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 40px;
         }
 
         h1, h2, h3 {
-            color: #b77db5; /* Or rosé */
+            color: #d6bfa8;
             margin-bottom: 5px;
         }
 
@@ -23,38 +32,53 @@
         }
 
         .section {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
-        .info-table, .produits-table {
+        .produits-table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 10px;
         }
 
         .produits-table th, .produits-table td {
-            border: 1px solid #e0cfcf;
+            border: 1px solid #d6bfa8;
             padding: 10px;
         }
 
         .produits-table th {
-            background-color: #f5e6f5;
+            background-color: #f4e3c1; /* Or doux */
             color: #4a2e2a;
-            font-weight: bold;
+            font-weight: 600;
+            text-align: left;
+        }
+
+
+        .produits-table td:nth-child(2),
+        .produits-table td:nth-child(3) {
+            text-align: center;
+        }
+
+        .produits-table td:nth-child(4) {
+            text-align: right;
         }
 
         .total {
             text-align: right;
             font-size: 16px;
             font-weight: bold;
-            margin-top: 20px;
+            margin-top: 25px;
             color: #4a2e2a;
         }
 
         footer {
-            margin-top: 40px;
+            position: fixed;
+            bottom: 40px;
+            left: 0;
+            right: 0;
             text-align: center;
             font-size: 12px;
-            color: #888;
+            color: #999;
             border-top: 1px solid #ccc;
             padding-top: 10px;
         }
@@ -62,48 +86,49 @@
 </head>
 <body>
 
-    <header>
-        <h1>Océan de Bijoux</h1>
-        <h2>Facture n°{{ $commande->id }}</h2>
-    </header>
+    <div class="container">
+        <header>
+            <h1>Océan de Bijoux</h1>
+            <h2>Facture n°{{ $commande->id }}</h2>
+        </header>
 
-    <div class="section">
-        <strong>Date :</strong> {{ $commande->created_at->format('d/m/Y') }}<br>
-        <p><strong>Client :</strong> {{ $commande->user->prenom }} {{ $commande->user->nom }}</p>
-        <p><strong>Adresse :</strong> {{ $commande->user->adresse }}, {{ $commande->user->code_postal }} {{ $commande->user->ville }}</p>
-    </div>
+        <div class="section">
+            <p><strong>Date :</strong> {{ $commande->created_at->format('d/m/Y') }}</p>
+            <p><strong>Client :</strong> {{ $commande->user->prenom }} {{ $commande->user->nom }}</p>
+            <p><strong>Adresse :</strong> {{ $commande->user->adresse }}, {{ $commande->user->code_postal }} {{ $commande->user->ville }}</p>
+        </div>
 
-    <table class="produits-table">
-        <thead>
-            <tr>
-                <th>Produit</th>
-                <th>Quantité</th>
-                <th>Prix unitaire</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($commande->lignes as $ligne)
+        <table class="produits-table">
+            <thead>
                 <tr>
-                    <td>{{ $ligne->produit->nom ?? 'Produit supprimé' }}</td>
-                    <td>{{ $ligne->quantite }}</td>
-                    <td>{{ number_format($ligne->prix_unitaire, 2, ',', ' ') }} €</td>
-                    <td>{{ number_format($ligne->total, 2, ',', ' ') }} €</td>
+                    <th>Produit</th>
+                    <th>Quantité</th>
+                    <th>Prix unitaire</th>
+                    <th>Total</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach ($commande->lignes as $ligne)
+                    <tr>
+                        <td>{{ $ligne->produit->nom ?? 'Produit supprimé' }}</td>
+                        <td>{{ $ligne->quantite }}</td>
+                        <td>{{ number_format($ligne->prix_unitaire, 2, ',', ' ') }} €</td>
+                        <td>{{ number_format($ligne->total, 2, ',', ' ') }} €</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
 
-    @php
-        $totalReel = $commande->lignes->sum('total');
-    @endphp
+        @php
+            $totalReel = $commande->lignes->sum('total');
+        @endphp
 
-    <h3 style="margin-top: 20px;">Total réglé : {{ number_format($totalReel, 2, ',', ' ') }} €</h3>
+        <h3 class="total">Total réglé : {{ number_format($totalReel, 2, ',', ' ') }} €</h3>
+    </div>
 
     <footer>
         &copy; {{ date('Y') }} Océan de Bijoux – www.oceandebijoux.fr<br>
-        Merci pour votre commande !<br>
-        Pour toute question, contactez-nous à contact@oceandebijoux.fr
+        Merci pour votre commande ! Pour toute question : contact@oceandebijoux.fr
     </footer>
 
 </body>

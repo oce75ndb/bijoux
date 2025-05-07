@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Bondon',
                 'prenom' => 'Océane',
-                'password' => Hash::make('motdepasse'),
+                'password' => Hash::make('Ilona2005.'),
                 'email_verified_at' => now(),
                 'telephone' => '0788888888',
                 'adresse' => '1 rue de la paix',
