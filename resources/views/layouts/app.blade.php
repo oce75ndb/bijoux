@@ -34,7 +34,7 @@
 
         <!-- Pied de page -->
         <footer class="bg-beige dark:bg-gold py-8">
-            <div class="container mx-auto px-4 py-4 shadow-md rounded-lg border border-gold dark:border-brown">
+            <div class="max-w-7xl mx-auto px-4 py-4 shadow-md rounded-lg border border-gold dark:border-brown">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
                     <!-- Colonne 1 : Liens utiles -->
                     <div>
