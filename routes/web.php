@@ -10,6 +10,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CommandeController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Routes publiques
@@ -60,7 +61,42 @@ Route::get('/dashboard', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
-Route::post('/contact', [ContactController::class, 'envoyer'])->name('contact.send');
+
+// Pages statiques
+Route::get('/{page}', function ($page) {
+    $pages = [
+        'cgv' => [
+            'titre' => 'Conditions Générales de Vente',
+            'contenu' => '<p>Insère ici les CGV complètes...</p>',
+        ],
+        'retours' => [
+            'titre' => 'Retours et Remboursements',
+            'contenu' => '<p>Politique de retour : 14 jours après réception...</p>',
+        ],
+        'mentions-legales' => [
+            'titre' => 'Mentions légales',
+            'contenu' => '<p>Entreprise : Océan de Bijoux - SIRET 00000000000000...</p>',
+        ],
+        'nous-ecrire' => [
+            'titre' => 'Nous écrire',
+            'contenu' => '<p>Contacte-nous à contact@oceandebijoux.fr ou via le formulaire.</p>',
+        ],
+        'collaborations' => [
+            'titre' => 'Collaborations',
+            'contenu' => '<p>Tu veux collaborer avec nous ? Voici comment...</p>',
+        ],
+        'nous-distribuer' => [
+            'titre' => 'Nous distribuer',
+            'contenu' => '<p>Tu veux devenir revendeur ? Contacte-nous ici...</p>',
+        ],
+    ];
+
+    if (!array_key_exists($page, $pages)) {
+        abort(404);
+    }
+
+    return view('static', $pages[$page]);
+})->name('page.static');
 
 /*
 |--------------------------------------------------------------------------

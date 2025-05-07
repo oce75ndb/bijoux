@@ -36,38 +36,23 @@
         <footer class="bg-beige dark:bg-gold py-8">
             <div class="container mx-auto px-4 py-4 shadow-md rounded-lg border border-gold dark:border-brown">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    <!-- Colonne 1 : À Propos -->
-                    <div>
-                        <h4 class="text-lg font-bold text-brown dark:text-brown">À Propos</h4>
-                        <ul class="mt-4 space-y-2">
-                            <li><a href="#" class="text-gold dark:text-beige hover:underline">La marque</a></li>
-                            <li><a href="#" class="text-gold dark:text-beige hover:underline">L'atelier</a></li>
-                            <li><a href="#" class="text-gold dark:text-beige hover:underline">Le blog</a></li>
-                        </ul>
-                    </div>
-                    <!-- Colonne 2 : Liens utiles -->
+                    <!-- Colonne 1 : Liens utiles -->
                     <div>
                         <h4 class="text-lg font-bold text-brown dark:text-brown">Liens utiles</h4>
                         <ul class="mt-4 space-y-2">
-                            <li><a href="#" class="text-gold dark:text-beige hover:underline">Retours et
+                            <li><a href="{{ route('page.static', 'retours') }}" class="text-gold dark:text-beige hover:underline">Retours et
                                     remboursements</a></li>
-                            <li><a href="#" class="text-gold dark:text-beige hover:underline">Mentions légales</a></li>
-                            <li><a href="#" class="text-gold dark:text-beige hover:underline">CGV</a></li>
+                            <li><a href="{{ route('page.static', 'mentions-legales') }}" class="text-gold dark:text-beige hover:underline">Mentions légales</a></li>
+                            <li><a href="{{ route('page.static', 'cgv') }}" class="text-gold dark:text-beige hover:underline">CGV</a></li>
                         </ul>
-                        <div class="mt-4 flex space-x-4">
-                            <a href="#" class="text-brown dark:text-beige hover:text-gold"><i
-                                    class="fab fa-facebook"></i></a>
-                            <a href="#" class="text-brown dark:text-beige hover:text-gold"><i
-                                    class="fab fa-instagram"></i></a>
-                        </div>
                     </div>
-                    <!-- Colonne 3 : Contact -->
+                    <!-- Colonne 2 : Contact -->
                     <div>
                         <h4 class="text-lg font-bold text-brown dark:text-brown">Contact</h4>
                         <ul class="mt-4 space-y-2">
                             <li><a href="{{ route('contact') }}" class="text-gold dark:text-beige hover:underline">Nous écrire</a></li>
-                            <li><a href="#" class="text-gold dark:text-beige hover:underline">Collaborations</a></li>
-                            <li><a href="#" class="text-gold dark:text-beige hover:underline">Nous distribuer</a></li>
+                            <li><a href="{{ route('page.static', 'collaborations') }}" class="text-gold dark:text-beige hover:underline">Collaborations</a></li>
+                            <li><a href="{{ route('page.static', 'nous-distribuer') }}" class="text-gold dark:text-beige hover:underline">Nous distribuer</a></li>
                         </ul>
                     </div>
                 </div>
