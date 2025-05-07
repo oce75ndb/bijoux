@@ -11,8 +11,20 @@
                         <h3 class="text-xl font-bold text-brown mb-2">
                             Commande n°{{ $commande->id }} – {{ $commande->created_at->format('d/m/Y') }}
                         </h3>
-                        <p class="text-sm text-brown">Total : <strong>{{ number_format($commande->total, 2) }} €</strong></p>
-                        <p class="text-sm text-brown">Adresse : {{ $commande->adresse }}, {{ $commande->code_postal }} {{ $commande->ville }}</p>
+
+                        @php
+                            $total = $commande->lignes->sum('total');
+                        @endphp
+
+                        <p class="text-sm text-brown">
+                            Total : <strong>{{ number_format($total, 2, ',', ' ') }} €</strong>
+                        </p>
+
+                        <p class="text-sm text-brown">
+                            Adresse : {{ $commande->user->adresse ?? '' }},
+                            {{ $commande->user->code_postal ?? '' }}
+                            {{ $commande->user->ville ?? '' }}
+                        </p>
 
                         <div class="mt-4 text-right">
                             <a href="{{ route('commandes.facture', $commande->id) }}"

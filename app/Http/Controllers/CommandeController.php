@@ -12,18 +12,20 @@ class CommandeController extends Controller
 {
     public function historique()
     {
-        $commandes = Commande::with('commandeligne.produit')
+        $commandes = Commande::with('lignes.produit')
             ->where('user_id', Auth::id())
             ->latest()
             ->get();
 
-        return view('historique', compact('commandes'));
+            return view('commandes.historique', compact('commandes'));
     }
 
     public function facture($id)
     {
-        $commande = Commande::with('lignes')->where('id', $id)
-            ->where('user_id', Auth::id())->firstOrFail();
+        $commande = Commande::with(['lignes.produit', 'user'])
+            ->where('id', $id)
+            ->where('user_id', Auth::id())
+            ->firstOrFail();
 
         $pdf = Pdf::loadView('commandes.facture', compact('commande'));
 

@@ -4,21 +4,76 @@
     <meta charset="UTF-8">
     <title>Facture commande #{{ $commande->id }}</title>
     <style>
-        body { font-family: DejaVu Sans, sans-serif; }
-        h2 { color: #b77db5; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ccc; padding: 8px; }
-        th { background-color: #f2f2f2; }
+        @page { margin: 40px; }
+        body {
+            font-family: DejaVu Sans, sans-serif;
+            font-size: 14px;
+            color: #4a2e2a; /* Marron clair */
+            background-color: #fffaf5; /* Beige doux */
+        }
+
+        h1, h2, h3 {
+            color: #b77db5; /* Or rosé */
+            margin-bottom: 5px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .info-table, .produits-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .produits-table th, .produits-table td {
+            border: 1px solid #e0cfcf;
+            padding: 10px;
+        }
+
+        .produits-table th {
+            background-color: #f5e6f5;
+            color: #4a2e2a;
+            font-weight: bold;
+        }
+
+        .total {
+            text-align: right;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #4a2e2a;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
     </style>
 </head>
 <body>
-    <h2>Facture – Commande #{{ $commande->id }}</h2>
 
-    <p><strong>Client :</strong> {{ $commande->prenom }} {{ $commande->nom }}</p>
-    <p><strong>Date :</strong> {{ $commande->created_at->format('d/m/Y') }}</p>
-    <p><strong>Adresse :</strong> {{ $commande->adresse }}, {{ $commande->code_postal }} {{ $commande->ville }}</p>
+    <header>
+        <h1>Océan de Bijoux</h1>
+        <h2>Facture n°{{ $commande->id }}</h2>
+    </header>
 
-    <table>
+    <div class="section">
+        <strong>Date :</strong> {{ $commande->created_at->format('d/m/Y') }}<br>
+        <p><strong>Client :</strong> {{ $commande->user->prenom }} {{ $commande->user->nom }}</p>
+        <p><strong>Adresse :</strong> {{ $commande->user->adresse }}, {{ $commande->user->code_postal }} {{ $commande->user->ville }}</p>
+    </div>
+
+    <table class="produits-table">
         <thead>
             <tr>
                 <th>Produit</th>
@@ -30,15 +85,26 @@
         <tbody>
             @foreach ($commande->lignes as $ligne)
                 <tr>
-                    <td>Produit #{{ $ligne->produit_id }}</td> {{-- Ou $ligne->produit->nom si tu veux plus de détails --}}
+                    <td>{{ $ligne->produit->nom ?? 'Produit supprimé' }}</td>
                     <td>{{ $ligne->quantite }}</td>
-                    <td>{{ number_format($ligne->prix, 2) }} €</td>
-                    <td>{{ number_format($ligne->prix * $ligne->quantite, 2) }} €</td>
+                    <td>{{ number_format($ligne->prix_unitaire, 2, ',', ' ') }} €</td>
+                    <td>{{ number_format($ligne->total, 2, ',', ' ') }} €</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 
-    <h3 style="margin-top: 20px;">Total : {{ number_format($commande->total, 2) }} €</h3>
+    @php
+        $totalReel = $commande->lignes->sum('total');
+    @endphp
+
+    <h3 style="margin-top: 20px;">Total réglé : {{ number_format($totalReel, 2, ',', ' ') }} €</h3>
+
+    <footer>
+        &copy; {{ date('Y') }} Océan de Bijoux – www.oceandebijoux.fr<br>
+        Merci pour votre commande !<br>
+        Pour toute question, contactez-nous à contact@oceandebijoux.fr
+    </footer>
+
 </body>
 </html>
