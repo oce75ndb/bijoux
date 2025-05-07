@@ -67,27 +67,29 @@ Route::get('/{page}', function ($page) {
     $pages = [
         'cgv' => [
             'titre' => 'Conditions Générales de Vente',
-            'contenu' => '<p>Insère ici les CGV complètes...</p>',
+            'contenu' => '<p>Les présentes conditions s’appliquent à toutes les ventes conclues sur le site Océan de Bijoux. Les produits demeurent la propriété du vendeur jusqu’au paiement complet du prix. Les prix sont indiqués en euros, toutes taxes comprises.</p>',
         ],
         'retours' => [
             'titre' => 'Retours et Remboursements',
-            'contenu' => '<p>Politique de retour : 14 jours après réception...</p>',
+            'contenu' => '<p>Vous disposez d’un délai de 14 jours après réception de votre commande pour demander un retour. Les frais de retour sont à la charge de l’acheteur. Le remboursement sera effectué sous 10 jours après validation de l’état des articles retournés.</p>',
         ],
         'mentions-legales' => [
-            'titre' => 'Mentions légales',
-            'contenu' => '<p>Entreprise : Océan de Bijoux - SIRET 00000000000000...</p>',
-        ],
-        'nous-ecrire' => [
-            'titre' => 'Nous écrire',
-            'contenu' => '<p>Contacte-nous à contact@oceandebijoux.fr ou via le formulaire.</p>',
+            'titre' => 'Mentions Légales',
+            'contenu' => '
+                <p><strong>Éditeur :</strong> Océan de Bijoux</p>
+                <p><strong>Siège social :</strong> 123 Rue de la Perle, 84000 Avignon</p>
+                <p><strong>SIRET :</strong> 000 000 000 00000</p>
+                <p><strong>Responsable de la publication :</strong> Océane [Nom]</p>
+                <p><strong>Hébergement :</strong> o2switch, 222-224 Boulevard Gustave Flaubert, 63000 Clermont-Ferrand</p>
+            ',
         ],
         'collaborations' => [
             'titre' => 'Collaborations',
-            'contenu' => '<p>Tu veux collaborer avec nous ? Voici comment...</p>',
+            'contenu' => '<p>Vous êtes créateur, influenceur ou professionnel du secteur et souhaitez collaborer avec Océan de Bijoux ? Contactez-nous à collaborations@oceandebijoux.fr. Nous étudions chaque proposition avec attention.</p>',
         ],
         'nous-distribuer' => [
             'titre' => 'Nous distribuer',
-            'contenu' => '<p>Tu veux devenir revendeur ? Contacte-nous ici...</p>',
+            'contenu' => '<p>Vous êtes une boutique ou un concept store et souhaitez distribuer nos bijoux ? Écrivez-nous à distribution@oceandebijoux.fr pour recevoir notre catalogue revendeur et nos conditions B2B.</p>',
         ],
     ];
 
