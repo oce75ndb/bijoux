@@ -35,7 +35,7 @@
         <!-- Pied de page -->
         <footer class="bg-beige dark:bg-gold py-8">
             <div class="px-4 py-4 border border-gold dark:border-brown shadow-md rounded-lg max-w-4xl mx-auto">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center text-center md:text-left gap-12 max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-center gap-6 items-start md:items-center text-center md:text-left max-w-4xl mx-auto">
                     <!-- Colonne 1 : Liens utiles -->
                     <div>
                         <h4 class="text-lg font-bold text-brown dark:text-brown">Liens utiles</h4>
