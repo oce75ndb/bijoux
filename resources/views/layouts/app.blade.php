@@ -34,8 +34,8 @@
 
         <!-- Pied de page -->
         <footer class="bg-beige dark:bg-gold py-8">
-            <div class="mx-auto px-4 py-4 shadow-md rounded-lg border border-gold dark:border-brown max-w-5xl">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+            <div class="px-4 py-4 border border-gold dark:border-brown shadow-md rounded-lg max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-center gap-16 text-center">
                     <!-- Colonne 1 : Liens utiles -->
                     <div>
                         <h4 class="text-lg font-bold text-brown dark:text-brown">Liens utiles</h4>
@@ -56,10 +56,10 @@
                     </div>
                 </div>
             </div>
-            <div class="container text-center mx-auto px-4 py-4">
+            <div class="text-center mt-6 px-4">
                 <p class="text-brown dark:text-brown">&copy; {{ date('Y') }} Océan de Bijoux - Tous droits réservés</p>
             </div>
-        </footer>        
+        </footer>                
     </div>
 </body>
 
