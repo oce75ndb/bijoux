@@ -79,17 +79,17 @@ Route::get('/{page}', function ($page) {
                 <p><strong>Éditeur :</strong> Océan de Bijoux</p>
                 <p><strong>Siège social :</strong> 123 Rue de la Perle, 84000 Avignon</p>
                 <p><strong>SIRET :</strong> 000 000 000 00000</p>
-                <p><strong>Responsable de la publication :</strong> Océane [Nom]</p>
+                <p><strong>Responsable de la publication :</strong> Océane [Bondon</p>
                 <p><strong>Hébergement :</strong> o2switch, 222-224 Boulevard Gustave Flaubert, 63000 Clermont-Ferrand</p>
             ',
         ],
         'collaborations' => [
             'titre' => 'Collaborations',
-            'contenu' => '<p>Vous êtes créateur, influenceur ou professionnel du secteur et souhaitez collaborer avec Océan de Bijoux ? Contactez-nous à collaborations@oceandebijoux.fr. Nous étudions chaque proposition avec attention.</p>',
+            'contenu' => '<p>Vous êtes créateur, influenceur ou professionnel du secteur et souhaitez collaborer avec Océan de Bijoux ? Contactez-nous à contact@oceandebijoux.fr. Nous étudions chaque proposition avec attention.</p>',
         ],
         'nous-distribuer' => [
             'titre' => 'Nous distribuer',
-            'contenu' => '<p>Vous êtes une boutique ou un concept store et souhaitez distribuer nos bijoux ? Écrivez-nous à distribution@oceandebijoux.fr pour recevoir notre catalogue revendeur et nos conditions B2B.</p>',
+            'contenu' => '<p>Vous êtes une boutique ou un concept store et souhaitez distribuer nos bijoux ? Écrivez-nous à contact@oceandebijoux.fr pour recevoir notre catalogue revendeur et nos conditions B2B.</p>',
         ],
     ];
 
