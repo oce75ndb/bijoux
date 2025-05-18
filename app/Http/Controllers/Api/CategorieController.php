@@ -31,4 +31,21 @@ class CategorieController extends Controller
         $output->writeln("Categorie created: " . json_encode($categorie));
         return response()->json($categorie, 201);
     }
+
+    public function destroy($id)
+    {
+        $output = new ConsoleOutput();
+        $output->writeln("Delete categorie with id: " . $id);
+        $categorie = Categorie::findOrFail($id);
+        $categorie->delete();
+        $output->writeln("Categorie deleted: " . json_encode($categorie));
+        return response()->json(null, 204);
+    }
+    public function show($id)
+    {
+        $output = new ConsoleOutput();
+        $output->writeln("Get categorie with id: " . $id);
+        $categorie = Categorie::findOrFail($id);
+        return response()->json($categorie);
+    }
 }
