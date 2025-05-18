@@ -8,3 +8,4 @@ use App\Http\Controllers\Api\CategorieController;
 Route::get('/produits',[ProduitController::class,'index']);
 
 Route::get('/categories',[CategorieController::class,'index']);
+Route::post('/categories',[CategorieController::class,'store']);
