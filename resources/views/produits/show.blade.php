@@ -47,10 +47,10 @@
                         Détails du produit
                     </h3>
                     <div class="text-brown dark:text-brown text-right space-y-2 animate-slide-up delay-500">
-                        <p>Matériaux : {{ $produit->materiau }}</p>
-                        <p>Style : {{ $produit->style }}</p>
+                        <p>Matériaux : {{ $produit->materiau->materiau }}</p>
+                        <p>Style : {{ $produit->style->style }}</p>
                         <p>Dimensions : {{ $produit->dimensions }}</p>
-                        <p>Fabrication : {{ $produit->fabrication }}</p>
+                        <p>Fabrication : {{ $produit->fabrication->fabrication }}</p>
                     </div>
 
                     <!-- Bouton pour ajouter au panier -->
