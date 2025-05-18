@@ -22,11 +22,13 @@ class CategorieController extends Controller
         $output->writeln("Request data: " . json_encode($request->all()));
 
         $request->validate([
-            'nom' => 'required|string|max:255',
+            'categorie' => 'required|string|max:255',
         ]);
 
         $categorie = Categorie::create($request->all());
+        $output->writeln("Après insertion");
 
+        $output->writeln("Categorie created: " . json_encode($categorie));
         return response()->json($categorie, 201);
     }
 }
