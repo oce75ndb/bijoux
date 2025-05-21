@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Style extends Model
 {
     use HasFactory;
-
+    protected $fillable = [
+        'style',
+    ];
     public function produits() {
         return $this->hasMany(Produit::class);
     }

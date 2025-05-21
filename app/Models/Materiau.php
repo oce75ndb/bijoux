@@ -8,8 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Materiau extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'materiau',
+    ];
     protected $table = 'materiaux';
-    public function produits() {
+    public function produits()
+    {
         return $this->hasMany(Produit::class);
     }
 }

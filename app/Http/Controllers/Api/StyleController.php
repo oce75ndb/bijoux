@@ -24,7 +24,7 @@ class StyleController extends Controller
         $request->validate([
             'style' => 'required|string|max:255',
         ]);
-
+        
         $style = Style::create($request->all());
 
         $output->writeln("Style created: " . json_encode($style));
