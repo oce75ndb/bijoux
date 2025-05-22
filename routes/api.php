@@ -16,6 +16,7 @@ Route::middleware('auth:sanctum')->delete('/produits/{id}', [ProduitController::
 
 Route::get('/categories', [CategorieController::class, 'index']);
 Route::middleware('auth:sanctum')->post('/categories', [CategorieController::class, 'store']);
+Route::middleware('auth:sanctum')->put('/categories/{id}', [CategorieController::class, 'update']);
 Route::middleware('auth:sanctum')->delete('/categories/{id}', [CategorieController::class, 'destroy']);
 
 Route::get('/styles', [StyleController::class, 'index']);

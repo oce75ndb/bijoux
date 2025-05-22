@@ -15,9 +15,6 @@ class StyleController extends Controller
 
     public function index()
     {
-        // if (!Auth::guard('sanctum')->check()) {
-        //     return response()->json(['message' => 'Unauthorized'], 401);
-        // }
         $output = new ConsoleOutput();
         $output->writeln("Get all styles");
         return response()->json(Style::all());
@@ -25,6 +22,10 @@ class StyleController extends Controller
 
     public function store(Request $request)
     {
+        if (!Auth::guard('sanctum')->check()) {
+             return response()->json(['message' => 'Unauthorized'], 401);
+        }
+
         $output = new ConsoleOutput();
         $output->writeln("Add new style");
         $output->writeln("Request data: " . json_encode($request->all()));
@@ -39,8 +40,42 @@ class StyleController extends Controller
         return response()->json($style, 201);
     }
 
+    public function update(Request $request, $id)
+    {
+
+        $output = new ConsoleOutput();
+        $output->writeln("Add new style");
+        $output->writeln("Request data: " . json_encode($request->all()));
+
+        try {
+            $style = Style::find($id);
+
+            if (!$style) {
+                return response()->json(['error' => 'Style non trouvé'], 404);
+            }
+
+            $request->validate([
+                'style' => 'required|string|unique:prestationtype,nom,' . $id
+            ]);
+
+            $style->update([
+                'style' => $request->style
+            ]);
+
+            return response()->json(['message' => 'Style mis à jour avec succès', 'prestationType' => $prestationType], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+
+
     public function destroy($id)
     {
+
+        if (!Auth::guard('sanctum')->check()) {
+             return response()->json(['message' => 'Unauthorized'], 401);
+        }
+
         $output = new ConsoleOutput();
         $output->writeln("Delete style with id: " . $id);
         $style = Style::findOrFail($id);
