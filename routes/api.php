@@ -6,6 +6,9 @@ use App\Http\Controllers\Api\CategorieController;
 use App\Http\Controllers\Api\StyleController;
 use App\Http\Controllers\Api\MateriauController;
 use App\Http\Controllers\Api\FabricationController;
+use App\Http\Controllers\Api\AuthController;
+
+Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/produits', [ProduitController::class, 'index']);
 Route::middleware('auth:sanctum')->post('/produits', [ProduitController::class, 'store']);

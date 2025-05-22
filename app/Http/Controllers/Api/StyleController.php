@@ -4,16 +4,20 @@ use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use App\Models\Style;
+use Illuminate\Support\Facades\Auth;
 
 class StyleController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:sanctum');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth:sanctum');
+    // }
 
     public function index()
     {
+        // if (!Auth::guard('sanctum')->check()) {
+        //     return response()->json(['message' => 'Unauthorized'], 401);
+        // }
         $output = new ConsoleOutput();
         $output->writeln("Get all styles");
         return response()->json(Style::all());
