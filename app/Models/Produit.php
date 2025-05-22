@@ -15,6 +15,9 @@ class Produit extends Model
         'prix',
         'image',
         'categorie_id',
+        'materiau_id',
+        "style_id",
+        "fabrication_id",
     ];
 
     protected $casts = [

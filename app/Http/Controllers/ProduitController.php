@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Output\ConsoleOutput;
 use App\Models\Produit;
 use App\Models\Categorie;
 
@@ -31,11 +32,16 @@ class ProduitController extends Controller
     
     public function show($id)
     {
+        $console=new ConsoleOutput();
+        $console->writeln("ProduitController@show");
+
         // Récupère toutes les catégories pour le menu
         $categories = Categorie::all();
+        $console->writeln("categories: " . json_encode($categories));
 
         // Récupère le produit par son ID ou échoue avec une erreur 404
         $produit = Produit::findOrFail($id);
+        $console->writeln("produit: " . json_encode($produit));
 
         // Retourne la vue de détails du produit
         return view('produits.show', compact('categories','produit'));

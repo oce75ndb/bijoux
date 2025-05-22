@@ -19,5 +19,5 @@ class HomeController extends Controller
 
         // Envoyer les produits à la vue
         return view('home', compact('produitA', 'produitB', 'produitC', 'categories'));
-        }
+    }
 }
