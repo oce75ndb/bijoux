@@ -1,13 +1,19 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-
-use App\Http\Controllers\Controller;
-use App\Models\Categorie;
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Output\ConsoleOutput;
+
+use App\Models\Categorie;
+
 class CategorieController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum');
+    }
+
     public function index()
     {
         $output = new ConsoleOutput();
@@ -26,7 +32,6 @@ class CategorieController extends Controller
         ]);
 
         $categorie = Categorie::create($request->all());
-        $output->writeln("Après insertion");
 
         $output->writeln("Categorie created: " . json_encode($categorie));
         return response()->json($categorie, 201);
@@ -36,9 +41,11 @@ class CategorieController extends Controller
     {
         $output = new ConsoleOutput();
         $output->writeln("Delete categorie with id: " . $id);
+        
         $categorie = Categorie::findOrFail($id);
         $categorie->delete();
         $output->writeln("Categorie deleted: " . json_encode($categorie));
+        
         return response()->json(null, 204);
     }
     public function show($id)

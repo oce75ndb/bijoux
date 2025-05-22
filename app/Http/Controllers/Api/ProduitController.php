@@ -1,14 +1,18 @@
 <?php
-
 namespace App\Http\Controllers\Api;
-
-use App\Http\Controllers\Controller;
-use App\Models\Produit;
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Output\ConsoleOutput;
+use App\Models\Produit;
 
 class ProduitController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum');
+    }
+        
     public function index()
     {
         $output = new ConsoleOutput();
