@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('commandeslignes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('commande_id');
-            $table->unsignedBigInteger('produit_id'); // or 'article_id' depending on your naming
+            $table->unsignedBigInteger('produit_id');
             $table->integer('quantite')->default(1);
             $table->decimal('prix_unitaire', 10, 2); // price at the time of order
             $table->decimal('total', 10, 2); // prix_unitaire * quantite

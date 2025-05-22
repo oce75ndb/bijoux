@@ -22,7 +22,7 @@ class CommandeLigneFactory extends Factory
     {
         $faker = app(Faker::class);
         $quantite = $faker->numberBetween(1, 10);
-        $prix = $faker->randomFloat(2, 5, 200);
+        $prix = $faker->randomFloat(2, 5, 99);
 
         return [
             'commande_id' => Commande::inRandomOrder()->first()?->id ?? Commande::factory(),
