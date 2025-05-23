@@ -23,7 +23,7 @@ class StyleController extends Controller
     public function store(Request $request)
     {
         if (!Auth::guard('sanctum')->check()) {
-             return response()->json(['message' => 'Unauthorized'], 401);
+            return response()->json(['message' => 'Unauthorized'], 401);
         }
 
         $output = new ConsoleOutput();
@@ -33,7 +33,7 @@ class StyleController extends Controller
         $request->validate([
             'style' => 'required|string|max:255',
         ]);
-        
+
         $style = Style::create($request->all());
 
         $output->writeln("Style created: " . json_encode($style));
@@ -44,25 +44,22 @@ class StyleController extends Controller
     {
 
         $output = new ConsoleOutput();
-        $output->writeln("Add new style");
+        $output->writeln("Update style");
         $output->writeln("Request data: " . json_encode($request->all()));
 
         try {
             $style = Style::find($id);
-
             if (!$style) {
                 return response()->json(['error' => 'Style non trouvé'], 404);
             }
-
             $request->validate([
-                'style' => 'required|string|unique:prestationtype,nom,' . $id
+                'style' => 'required|string|unique:styles,style,' . $id
             ]);
-
             $style->update([
                 'style' => $request->style
             ]);
-
-            return response()->json(['message' => 'Style mis à jour avec succès', 'prestationType' => $prestationType], 200);
+            $output->writeln("Style updated: " . json_encode($style));
+            return response()->json($style, 201);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }
@@ -73,7 +70,7 @@ class StyleController extends Controller
     {
 
         if (!Auth::guard('sanctum')->check()) {
-             return response()->json(['message' => 'Unauthorized'], 401);
+            return response()->json(['message' => 'Unauthorized'], 401);
         }
 
         $output = new ConsoleOutput();

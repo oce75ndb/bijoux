@@ -21,6 +21,7 @@ Route::middleware('auth:sanctum')->delete('/categories/{id}', [CategorieControll
 
 Route::get('/styles', [StyleController::class, 'index']);
 Route::middleware('auth:sanctum')->post('/styles', [StyleController::class, 'store']);
+Route::middleware('auth:sanctum')->put('/styles/{id}', [StyleController::class, 'update']);
 Route::middleware('auth:sanctum')->delete('/styles/{id}', [StyleController::class, 'destroy']);
 
 Route::get('/materiaux', [MateriauController::class, 'index']);
