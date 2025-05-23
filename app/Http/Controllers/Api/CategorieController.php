@@ -9,10 +9,10 @@ use App\Models\Categorie;
 
 class CategorieController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:sanctum');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth:sanctum');
+    // }
 
     public function index()
     {
@@ -27,14 +27,23 @@ class CategorieController extends Controller
         $output->writeln("Add new categorie");
         $output->writeln("Request data: " . json_encode($request->all()));
 
-        $request->validate([
-            'categorie' => 'required|string|max:255',
-        ]);
+        try {
+            $request->validate([
+                'categorie' => 'required|string|max:255',
+            ]);
+            $output->writeln("Validation passed");
+            
+            $categorie = Categorie::create($request->all());
+            $output->writeln("Après insertion");
 
-        $categorie = Categorie::create($request->all());
+            $output->writeln("Categorie created: " . json_encode($categorie));
+            return response()->json($categorie, 201);
+        }
+        catch (\Exception $e) {
+            $output->writeln("Insertion failed: " . $e->getMessage());
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
 
-        $output->writeln("Categorie created: " . json_encode($categorie));
-        return response()->json($categorie, 201);
     }
 
     public function update(Request $request, $id)

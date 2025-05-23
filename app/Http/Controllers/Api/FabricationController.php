@@ -8,10 +8,10 @@ use App\Models\Fabrication;
 
 class FabricationController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:sanctum');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth:sanctum');
+    // }
 
     public function index()
     {
