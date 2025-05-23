@@ -65,7 +65,6 @@ class StyleController extends Controller
         }
     }
 
-
     public function destroy($id)
     {
 

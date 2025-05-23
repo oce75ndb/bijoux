@@ -34,6 +34,29 @@ class MateriauController extends Controller
         $output->writeln("Materiau created: " . json_encode($materiau));
         return response()->json($materiau, 201);
     }
+    public function update(Request $request, $id)
+    {
+        $output = new ConsoleOutput();
+        $output->writeln("Update materiau");
+        $output->writeln("Request data: " . json_encode($request->all()));
+
+        try {
+            $materiau = Materiau::find($id);
+            if (!$materiau) {
+                return response()->json(['error' => 'Materiau non trouvé'], 404);
+            }
+            $request->validate([
+                'materiau' => 'required|string|unique:materiaux,materiau,' . $id
+            ]);
+            $materiau->update([
+                'materiau' => $request->materiau
+            ]);
+            $output->writeln("Materiau updated: " . json_encode($materiau));
+            return response()->json($materiau, 201);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
 
     public function destroy($id)
     {

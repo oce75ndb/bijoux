@@ -37,15 +37,38 @@ class CategorieController extends Controller
         return response()->json($categorie, 201);
     }
 
+    public function update(Request $request, $id)
+    {
+        $output = new ConsoleOutput();
+        $output->writeln("Update categorie");
+        $output->writeln("Request data: " . json_encode($request->all()));
+
+        try {
+            $categorie = Categorie::find($id);
+            if (!$categorie) {
+                return response()->json(['error' => 'Catégorie non trouvée'], 404);
+            }
+            $request->validate([
+                'categorie' => 'required|string|unique:categories,categorie,' . $id
+            ]);
+            $categorie->update([
+                'categorie' => $request->categorie
+            ]);
+            $output->writeln("Categorie updated: " . json_encode($categorie));
+            return response()->json($categorie, 201);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
     public function destroy($id)
     {
         $output = new ConsoleOutput();
         $output->writeln("Delete categorie with id: " . $id);
-        
+
         $categorie = Categorie::findOrFail($id);
         $categorie->delete();
         $output->writeln("Categorie deleted: " . json_encode($categorie));
-        
+
         return response()->json(null, 204);
     }
     public function show($id)

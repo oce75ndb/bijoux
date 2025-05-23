@@ -12,7 +12,7 @@ class ProduitController extends Controller
     {
         $this->middleware('auth:sanctum');
     }
-        
+
     public function index()
     {
         $output = new ConsoleOutput();
@@ -36,6 +36,31 @@ class ProduitController extends Controller
         $output->writeln("Produit created: " . json_encode($produit));
         return response()->json($produit, 201);
     }
+
+    public function update(Request $request, $id)
+    {
+        $output = new ConsoleOutput();
+        $output->writeln("Update produit");
+        $output->writeln("Request data: " . json_encode($request->all()));
+
+        try {
+            $produit = Produit::find($id);
+            if (!$produit) {
+                return response()->json(['error' => 'Produit non trouvé'], 404);
+            }
+            $request->validate([
+                'produit' => 'required|string|unique:produits,produit,' . $id
+            ]);
+            $produit->update([
+                'produit' => $request->produit
+            ]);
+            $output->writeln("Produit updated: " . json_encode($produit));
+            return response()->json($produit, 201);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+
 
     public function destroy($id)
     {

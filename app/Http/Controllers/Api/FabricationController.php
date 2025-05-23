@@ -36,6 +36,30 @@ class FabricationController extends Controller
         return response()->json($fabrication, 201);
     }
 
+    public function update(Request $request, $id)
+    {
+        $output = new ConsoleOutput();
+        $output->writeln("Update fabrication");
+        $output->writeln("Request data: " . json_encode($request->all()));
+
+        try {
+            $fabrication = Fabrication::find($id);
+            if (!$fabrication) {
+                return response()->json(['error' => 'Fabrication non trouvée'], 404);
+            }
+            $request->validate([
+                'fabrication' => 'required|string|unique:fabrications,fabrication,' . $id
+            ]);
+            $fabrication->update([
+                'fabrication' => $request->fabrication
+            ]);
+            $output->writeln("Fabrication updated: " . json_encode($fabrication));
+            return response()->json($fabrication, 201);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+
     public function destroy($id)
     {
         $output = new ConsoleOutput();
