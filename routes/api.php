@@ -12,6 +12,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/produits', [ProduitController::class, 'index']);
 Route::middleware('auth:sanctum')->post('/produits', [ProduitController::class, 'store']);
+Route::middleware('auth:sanctum')->put('/produits/{id}', [ProduitController::class, 'update']);
 Route::middleware('auth:sanctum')->delete('/produits/{id}', [ProduitController::class, 'destroy']);
 
 Route::get('/categories', [CategorieController::class, 'index']);
@@ -26,8 +27,10 @@ Route::middleware('auth:sanctum')->delete('/styles/{id}', [StyleController::clas
 
 Route::get('/materiaux', [MateriauController::class, 'index']);
 Route::middleware('auth:sanctum')->post('/materiaux', [MateriauController::class, 'store']);
+Route::middleware('auth:sanctum')->put('/materiaux/{id}', [MateriauController::class, 'update']);
 Route::middleware('auth:sanctum')->delete('/materiaux/{id}', [MateriauController::class, 'destroy']);
 
 Route::get('/fabrications', [FabricationController::class, 'index']);
 Route::middleware('auth:sanctum')->post('/fabrications', [FabricationController::class, 'store']);
+Route::middleware('auth:sanctum')->put('/fabrications/{id}', [FabricationController::class, 'update']);
 Route::middleware('auth:sanctum')->delete('/fabrications/{id}', [FabricationController::class, 'destroy']);
