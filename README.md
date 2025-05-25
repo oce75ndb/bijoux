@@ -1,28 +1,28 @@
 # Océan de Bijoux
 
-Océan de Bijoux est un site e-commerce fictif développé avec Laravel dans le cadre de mon BTS SIO SLAM. Il permet aux utilisateurs de découvrir des bijoux en ligne, de les ajouter à leur panier, de passer commande via PayPal et de suivre leurs achats depuis leur espace personnel. Le projet a été réalisé en autonomie et a pour objectif de reproduire un fonctionnement complet de boutique en ligne, de la navigation jusqu'à la validation du paiement.
+Océan de Bijoux est un site e-commerce fictif développé avec Laravel dans le cadre de mon BTS SIO SLAM. Il permet aux utilisateurs de découvrir des bijoux en ligne, de les ajouter à leur panier, de passer commande via PayPal et de suivre leurs achats depuis leur espace personnel. Le projet a pour objectif de reproduire un fonctionnement complet de boutique en ligne, de la navigation jusqu'à la validation du paiement.
 
-## Technos utilisées
+## Technologies utilisées
 
 - Laravel 11  
-- Laravel Breeze (authentification, vérification email, réinitialisation du mot de passe)  
+- Laravel Breeze (authentification, vérification de l’adresse e-mail, réinitialisation du mot de passe)  
 - Blade / Tailwind CSS pour l’affichage  
 - MySQL (base de données relationnelle)  
-- Javascript avec Ajax pour le panier  
-- Intégration PayPal (paiement fictif uniquement côté redirection)
+- JavaScript avec Ajax pour la gestion du panier  
+- Intégration PayPal (paiement fictif uniquement via redirection)
 
 ## Fonctionnalités principales
 
 - affichage des produits organisés par catégories dynamiques  
 - barre de recherche permettant de filtrer les produits par mots-clés  
 - page d’accueil avec sélection de produits récents ou aléatoires  
+- envoi automatique d’un e-mail de validation d’inscription à l’utilisateur après la création de compte  
 - panier dynamique avec gestion en Ajax (ajout, retrait, mise à jour de quantité sans rechargement)  
 - validation des commandes via un bouton PayPal (redirection fonctionnelle mais sans test réel, faute de compte sandbox configuré)  
-- envoi automatique d’un e-mail de confirmation de commande à l’adresse de l’utilisateur après la commande  
+- envoi automatique d’un e-mail de confirmation de commande à l’utilisateur après l’achat  
 - affichage de l’historique des commandes dans l’espace client (accessible uniquement une fois connecté)  
 - génération d’un récapitulatif de la commande téléchargeable en PDF  
-- formulaire de contact avec enregistrement et traitement via contrôleur  
-- navigation fluide avec mise en page responsive adaptée aux différents formats d’écran  
+- formulaire de contact avec enregistrement via contrôleur  
 
 L’utilisateur doit impérativement être connecté pour accéder au processus de commande et à son historique personnel.
 
@@ -31,31 +31,28 @@ L’utilisateur doit impérativement être connecté pour accéder au processus 
 - afficher un message de confirmation après l’ajout au panier  
 - proposer un tri des produits (ordre alphabétique, prix croissant ou décroissant)  
 - afficher un message si aucun produit ne correspond à la recherche  
-- afficher le nombre total d’articles dans le panier directement dans le header  
+- améliorer le responsive du site sur tous les supports  
 - limiter la quantité maximale d’un même produit dans le panier  
 - ajouter une image par défaut si aucun visuel n’est renseigné  
-- améliorer la mise en page du formulaire de contact pour le rendre plus lisible  
-- afficher des messages d’erreur plus clairs dans les formulaires (ex : champ vide ou email incorrect)  
-- ajouter une description courte dans la fiche produit en plus de la description complète  
+- ajouter un mode sombre dynamique
 
 ## Structure simplifiée du projet
 
-- routes/web.php  
-- app/Http/Controllers/
-  - HomeController  
-  - ProduitController  
-  - CategorieController  
-  - PanierController  
-  - CommandeController  
-  - CheckoutController  
-  - ContactController  
-- resources/views/
-  - home.blade.php  
-  - contact.blade.php  
-  - historique.blade.php  
-  - facture.blade.php  
-  - confirmation.blade.php  
-  - composants partagés (layouts, messages, erreurs, etc.)
+- `routes/`  
+  - `web.php` : routes principales du site  
+  - `auth.php` : routes liées à l’authentification  
+  - `api.php`, `console.php` : fichiers système et API  
+
+- `resources/views/`  
+  - `auth/` : pages de connexion, inscription, mot de passe oublié, etc.  
+  - `checkout/` : vue de validation de commande  
+  - `commandes/` : facture et historique des commandes  
+  - `panier/` : affichage du panier  
+  - `produits/` et `categories/` : fiches produits et filtres par catégorie  
+  - `profile/` : gestion du profil utilisateur et confirmation  
+  - `emails/` : contenu du mail de contact  
+  - `layouts/` : structure globale des pages (`app`, `guest`, `navigation`)  
+  - `components/` : composants Blade réutilisables (boutons, messages, menus...)
 
 ## Projet fictif
 
