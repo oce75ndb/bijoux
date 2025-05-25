@@ -1,36 +1,44 @@
 # Océan de Bijoux
 
-Océan de Bijoux est un site e-commerce fictif développé avec Laravel dans le cadre de mon BTS SIO SLAM. Il permet aux utilisateurs de consulter des bijoux, les ajouter au panier, passer commande et consulter leur historique.
+Océan de Bijoux est un site e-commerce fictif développé avec Laravel dans le cadre de mon BTS SIO SLAM. Il permet aux utilisateurs de découvrir des bijoux en ligne, de les ajouter à leur panier, de passer commande via PayPal et de suivre leurs achats depuis leur espace personnel. Le projet a été réalisé en autonomie et a pour objectif de reproduire un fonctionnement complet de boutique en ligne, de la navigation jusqu'à la validation du paiement.
 
 ## Technos utilisées
 
 - Laravel 11  
-- Laravel Breeze (authentification)  
-- Blade / Tailwind CSS  
-- MySQL  
-- Javascript / Ajax  
-- PayPal (paiement fictif)
+- Laravel Breeze (authentification, vérification email, réinitialisation du mot de passe)  
+- Blade / Tailwind CSS pour l’affichage  
+- MySQL (base de données relationnelle)  
+- Javascript avec Ajax pour le panier  
+- Intégration PayPal (paiement fictif uniquement côté redirection)
 
 ## Fonctionnalités principales
 
-- affichage des produits par catégories  
-- filtre par mot-clé  
-- panier dynamique avec ajout/suppression en Ajax  
-- validation des commandes via PayPal  
-- envoi d’un mail de confirmation  
-- historique des commandes visible pour chaque utilisateur connecté  
+- affichage des produits organisés par catégories dynamiques  
+- barre de recherche permettant de filtrer les produits par mots-clés  
+- page d’accueil avec sélection de produits récents ou aléatoires  
+- panier dynamique avec gestion en Ajax (ajout, retrait, mise à jour de quantité sans rechargement)  
+- validation des commandes via un bouton PayPal (redirection fonctionnelle mais sans test réel, faute de compte sandbox configuré)  
+- envoi automatique d’un e-mail de confirmation de commande à l’adresse de l’utilisateur après la commande  
+- affichage de l’historique des commandes dans l’espace client (accessible uniquement une fois connecté)  
+- génération d’un récapitulatif de la commande téléchargeable en PDF  
+- formulaire de contact avec enregistrement et traitement via contrôleur  
+- navigation fluide avec mise en page responsive adaptée aux différents formats d’écran  
 
-L’utilisateur doit être connecté pour passer commande.
+L’utilisateur doit impérativement être connecté pour accéder au processus de commande et à son historique personnel.
 
-## Limitations / évolutions possibles
+## Améliorations possibles
 
-- je n’ai pas de compte test PayPal donc je n’ai pas pu tester un vrai paiement utilisateur, la redirection fonctionne mais c’est fictif pour l’instant  
-- ajout d’un système de favoris  
-- génération d’un pdf avec le récapitulatif de commande  
-- système de notes ou avis  
-- ajout de codes promos
+- afficher un message de confirmation après l’ajout au panier  
+- proposer un tri des produits (ordre alphabétique, prix croissant ou décroissant)  
+- afficher un message si aucun produit ne correspond à la recherche  
+- afficher le nombre total d’articles dans le panier directement dans le header  
+- limiter la quantité maximale d’un même produit dans le panier  
+- ajouter une image par défaut si aucun visuel n’est renseigné  
+- améliorer la mise en page du formulaire de contact pour le rendre plus lisible  
+- afficher des messages d’erreur plus clairs dans les formulaires (ex : champ vide ou email incorrect)  
+- ajouter une description courte dans la fiche produit en plus de la description complète  
 
-## Structure simplifiée
+## Structure simplifiée du projet
 
 - routes/web.php  
 - app/Http/Controllers/
@@ -40,11 +48,19 @@ L’utilisateur doit être connecté pour passer commande.
   - PanierController  
   - CommandeController  
   - CheckoutController  
+  - ContactController  
 - resources/views/
   - home.blade.php  
   - contact.blade.php  
   - historique.blade.php  
-  - facture.blade.php
+  - facture.blade.php  
+  - confirmation.blade.php  
+  - composants partagés (layouts, messages, erreurs, etc.)
+
+## Projet fictif
+
+Projet réalisé dans le cadre du BTS SIO SLAM, en respectant les principes du framework Laravel, avec mise en place d'une architecture MVC, gestion des vues via Blade, routage structuré et utilisation des bonnes pratiques du développement web.
+
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
