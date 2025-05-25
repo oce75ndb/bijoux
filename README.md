@@ -1,3 +1,51 @@
+# Océan de Bijoux
+
+Océan de Bijoux est un site e-commerce fictif développé avec Laravel dans le cadre de mon BTS SIO SLAM. Il permet aux utilisateurs de consulter des bijoux, les ajouter au panier, passer commande et consulter leur historique.
+
+## Technos utilisées
+
+- Laravel 11  
+- Laravel Breeze (authentification)  
+- Blade / Tailwind CSS  
+- MySQL  
+- Javascript / Ajax  
+- PayPal (paiement fictif)
+
+## Fonctionnalités principales
+
+- affichage des produits par catégories  
+- filtre par mot-clé  
+- panier dynamique avec ajout/suppression en Ajax  
+- validation des commandes via PayPal  
+- envoi d’un mail de confirmation  
+- historique des commandes visible pour chaque utilisateur connecté  
+
+L’utilisateur doit être connecté pour passer commande.
+
+## Limitations / évolutions possibles
+
+- je n’ai pas de compte test PayPal donc je n’ai pas pu tester un vrai paiement utilisateur, la redirection fonctionne mais c’est fictif pour l’instant  
+- ajout d’un système de favoris  
+- génération d’un pdf avec le récapitulatif de commande  
+- système de notes ou avis  
+- ajout de codes promos
+
+## Structure simplifiée
+
+- routes/web.php  
+- app/Http/Controllers/
+  - HomeController  
+  - ProduitController  
+  - CategorieController  
+  - PanierController  
+  - CommandeController  
+  - CheckoutController  
+- resources/views/
+  - home.blade.php  
+  - contact.blade.php  
+  - historique.blade.php  
+  - facture.blade.php
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
