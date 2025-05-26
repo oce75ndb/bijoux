@@ -66,7 +66,13 @@
                               :value="old('ville', $user->ville)" />
                 <x-input-error class="mt-2" :messages="$errors->get('ville')" />
             </div>
-    
+
+            <div class="col-span-6 sm:col-span-4">
+                <label for="region">Région</label>
+                <input id="region" name="region" type="text" class="mt-1 block w-full"
+                    value="{{ old('region', $user->region) }}">
+            </div>
+
             <div>
                 <x-input-label for="pays" :value="__('Pays')" />
                 <x-text-input id="pays" name="pays" type="text" class="mt-1 block w-full"

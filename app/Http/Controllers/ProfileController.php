@@ -37,6 +37,7 @@ class ProfileController extends Controller
             'adresse' => $request->input('adresse'),
             'code_postal' => $request->input('code_postal'),
             'ville' => $request->input('ville'),
+            'region' => $request->input('region'),
             'pays' => $request->input('pays'),
         ]);
 

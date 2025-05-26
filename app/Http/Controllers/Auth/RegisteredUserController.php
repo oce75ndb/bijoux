@@ -40,6 +40,7 @@ class RegisteredUserController extends Controller
             'adresse' => ['required', 'string', 'max:255'],
             'ville' => ['required', 'string', 'max:100'],
             'code_postal' => ['required', 'string', 'max:10'],
+            'region' => ['required', 'string', 'max:255'],
             'pays' => ['required', 'string', 'max:100'],
             'password' => [
                 'required',
@@ -60,6 +61,7 @@ class RegisteredUserController extends Controller
             'adresse' => $request->adresse,
             'ville' => $request->ville,
             'code_postal' => $request->code_postal,
+            'region' => $request->region,
             'pays' => $request->pays,
             'password' => Hash::make($request->password),
         ]);

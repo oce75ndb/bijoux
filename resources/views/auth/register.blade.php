@@ -53,6 +53,13 @@
                 </div>
             </div>
 
+            <!-- Région -->
+            <div>
+                <label for="region">Région</label>
+                <input id="region" name="region" type="text" required class="mt-1 block w-full" />
+            </div>
+
+
             <!-- Pays -->
             <div class="mt-4">
                 <x-input-label for="pays" :value="__('Pays')" />
